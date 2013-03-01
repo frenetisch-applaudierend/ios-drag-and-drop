@@ -15,9 +15,16 @@
 @property (nonatomic, readonly) UIView *draggingView;
 @property (nonatomic, readonly) NSMutableDictionary *userInfo;
 
+
+#pragma mark - Cancelling a Dragging Operation
+
+- (BOOL)isDraggingCancelled;
+
 - (void)cancelDragging;
 - (void)cancelDraggingAnimatedWithDuration:(NSTimeInterval)duration animations:(void(^)())animations;
-- (BOOL)isDraggingCancelled;
+
+- (void)beginCancellingDragging;
+- (void)completeCancellingDragging;
 
 
 #pragma mark - Conversion Helpers
