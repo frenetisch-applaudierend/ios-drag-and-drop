@@ -9,28 +9,24 @@
 /* Begin PBXBuildFile section */
 		5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447016E11C0B00293EAC /* DNDDragHandler.m */; };
 		5F8B447416E129D200293EAC /* DNDDragContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447316E129D200293EAC /* DNDDragContext.m */; };
+		5F8C868816E1308100F6161B /* DragAndDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C316E1085600E8A872 /* DragAndDrop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F8C868A16E1308A00F6161B /* DNDDragContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B447216E129D200293EAC /* DNDDragContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F8C868B16E1308A00F6161B /* DNDDragHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */; settings = {ATTRIBUTES = (); }; };
+		5F8C868F16E1348F00F6161B /* DNDDragContext_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C868E16E1348F00F6161B /* DNDDragContext_Private.h */; };
+		5F8C869116E137CD00F6161B /* DNDDragAndDropController_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */; };
 		5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */; };
 		5FDE39C816E10C9F00E8A872 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDE39C716E10C9F00E8A872 /* UIKit.framework */; };
 		5FECCB9B16DE5F92007ED32F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FECCB9A16DE5F92007ED32F /* Foundation.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5FECCB9516DE5F92007ED32F /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME}";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragHandler.h; sourceTree = "<group>"; };
 		5F8B447016E11C0B00293EAC /* DNDDragHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragHandler.m; sourceTree = "<group>"; };
 		5F8B447216E129D200293EAC /* DNDDragContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragContext.h; sourceTree = "<group>"; };
 		5F8B447316E129D200293EAC /* DNDDragContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragContext.m; sourceTree = "<group>"; };
+		5F8C868E16E1348F00F6161B /* DNDDragContext_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragContext_Private.h; sourceTree = "<group>"; };
+		5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNDDragAndDropController_Private.h; sourceTree = "<group>"; };
 		5FDE39C316E1085600E8A872 /* DragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragAndDrop.h; sourceTree = "<group>"; };
 		5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragAndDropController.h; sourceTree = "<group>"; };
 		5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragAndDropController.m; sourceTree = "<group>"; };
@@ -87,8 +83,10 @@
 				5FECCB9E16DE5F92007ED32F /* Prefix.pch */,
 				5FDE39C316E1085600E8A872 /* DragAndDrop.h */,
 				5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */,
+				5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */,
 				5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */,
 				5F8B447216E129D200293EAC /* DNDDragContext.h */,
+				5F8C868E16E1348F00F6161B /* DNDDragContext_Private.h */,
 				5F8B447316E129D200293EAC /* DNDDragContext.m */,
 				5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */,
 				5F8B447016E11C0B00293EAC /* DNDDragHandler.m */,
@@ -98,6 +96,22 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5F8C868716E1307C00F6161B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8C868816E1308100F6161B /* DragAndDrop.h in Headers */,
+				5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */,
+				5F8C868A16E1308A00F6161B /* DNDDragContext.h in Headers */,
+				5F8C868B16E1308A00F6161B /* DNDDragHandler.h in Headers */,
+				5F8C868F16E1348F00F6161B /* DNDDragContext_Private.h in Headers */,
+				5F8C869116E137CD00F6161B /* DNDDragAndDropController_Private.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		5FECCB9616DE5F92007ED32F /* iOS Library */ = {
 			isa = PBXNativeTarget;
@@ -105,7 +119,7 @@
 			buildPhases = (
 				5FECCB9316DE5F92007ED32F /* Sources */,
 				5FECCB9416DE5F92007ED32F /* Frameworks */,
-				5FECCB9516DE5F92007ED32F /* CopyFiles */,
+				5F8C868716E1307C00F6161B /* Headers */,
 			);
 			buildRules = (
 			);
@@ -221,6 +235,7 @@
 				GCC_PREFIX_HEADER = Sources/Prefix.pch;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = dragndrop;
+				PUBLIC_HEADERS_FOLDER_PATH = include/DragAndDrop;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -233,6 +248,7 @@
 				GCC_PREFIX_HEADER = Sources/Prefix.pch;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = dragndrop;
+				PUBLIC_HEADERS_FOLDER_PATH = include/DragAndDrop;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

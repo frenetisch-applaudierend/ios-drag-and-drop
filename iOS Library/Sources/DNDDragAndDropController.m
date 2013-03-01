@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Team RG. All rights reserved.
 //
 
-#import "DNDDragAndDropController.h"
+#import "DNDDragAndDropController_Private.h"
+#import "DNDDragHandler.h"
 
 
 @implementation DNDDragAndDropController {
@@ -21,7 +22,7 @@
     if ((self = [super init])) {
         _window = window;
         _dragSources = [NSMapTable mapTableWithKeyOptions:NSMapTableWeakMemory valueOptions:NSMapTableStrongMemory];
-        _dropTargets = [NSMapTable mapTableWithKeyOptions:NSMapTableWeakMemory valueOptions:NSMapTableStrongMemory];
+        _dropTargets = [NSMapTable mapTableWithKeyOptions:NSMapTableWeakMemory valueOptions:NSMapTableWeakMemory];
     }
     return self;
 }
@@ -31,17 +32,25 @@
 }
 
 
+#pragma mark - Getting Info
+
+- (UIView *)dragPaneView {
+    return _window.rootViewController.view;
+}
+
+
 #pragma mark - Registering Sources and Targets
 
 - (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate {
     NSParameterAssert(source != nil);
     NSParameterAssert(delegate != nil);
     
-    
+    [_dragSources setObject:[[DNDDragHandler alloc] initWithController:self sourceView:source delegate:delegate] forKey:source];
 }
 
 - (void)unregisterDragSource:(UIView *)source {
     NSParameterAssert(source != nil);
+    
     [_dragSources removeObjectForKey:source];
 }
 

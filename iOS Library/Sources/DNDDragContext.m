@@ -6,8 +6,18 @@
 //  Copyright (c) 2013 Team RG. All rights reserved.
 //
 
-#import "DNDDragContext.h"
+#import "DNDDragContext_Private.h"
+
 
 @implementation DNDDragContext
+
+#pragma mark - Initialization
+
+- (instancetype)init {
+    if ((self = [super init])) {
+        _userInfo = [NSMutableDictionary dictionary];
+    }
+    return self;
+}
 
 @end

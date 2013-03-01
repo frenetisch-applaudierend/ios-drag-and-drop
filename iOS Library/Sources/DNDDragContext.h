@@ -6,8 +6,12 @@
 //  Copyright (c) 2013 Team RG. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 
 @interface DNDDragContext : NSObject
+
+@property (nonatomic, readonly) UIView *dragView;
+@property (nonatomic, readonly) NSMutableDictionary *userInfo;
 
 @end
