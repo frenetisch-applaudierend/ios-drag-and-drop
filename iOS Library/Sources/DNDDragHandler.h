@@ -22,4 +22,6 @@
 @property (nonatomic, readonly, weak) UIView *sourceView;
 @property (nonatomic, readonly, weak) id<DNDDragSourceDelegate> dragDelegate;
 
+- (void)cancelDragging;
+
 @end

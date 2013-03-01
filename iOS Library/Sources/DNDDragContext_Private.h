@@ -7,10 +7,14 @@
 //
 
 #import "DNDDragContext.h"
+#import "DNDDragHandler.h"
 
 
 @interface DNDDragContext ()
 
-@property (nonatomic, strong) UIView *dragView;
+- (instancetype)initWithDragHandler:(DNDDragHandler *)handler;
+
+@property (nonatomic, strong) UIView *draggingView;
+@property (nonatomic, weak) DNDDragHandler *dragHandler;
 
 @end

@@ -11,10 +11,15 @@
 #import "DNDDragContext_Private.h"
 
 
-@implementation DNDDragHandler {
-    UIPanGestureRecognizer *_dragRecognizer;
-    DNDDragContext *_currentContext;
-}
+@interface DNDDragHandler ()
+
+@property (nonatomic, strong) UIPanGestureRecognizer *dragRecognizer;
+@property (nonatomic, strong) DNDDragContext *currentContext;
+
+@end
+
+
+@implementation DNDDragHandler
 
 #pragma mark - Initialization
 
@@ -52,37 +57,54 @@
 }
 
 - (void)beginDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
-    NSAssert(_currentContext == nil, @"Should not yet have a context");
+    NSAssert(self.currentContext == nil, @"Should not yet have a context");
     
-    _currentContext = [[DNDDragContext alloc] init];
-    UIView *dragView = [_dragDelegate dragAndDropController:_controller draggedViewForDragSource:_sourceView context:_currentContext];
+    self.currentContext = [[DNDDragContext alloc] initWithDragHandler:self];
+    UIView *dragView = [self.dragDelegate dragAndDropController:self.controller viewForDraggingWithContext:self.currentContext];
     if (dragView == nil) {
-        [self resetDragRecognizer];
+        [self cancelDragging];
         return;
     }
     
-    _currentContext.dragView = dragView;
-    [_controller.dragPaneView addSubview:dragView];
-    dragView.center = [recognizer locationInView:_controller.dragPaneView];
+    self.currentContext.draggingView = dragView;
+    [self.controller.dragPaneView addSubview:dragView];
+    dragView.center = [recognizer locationInView:self.controller.dragPaneView];
 }
 
 - (void)updateDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
-    NSAssert(_currentContext != nil, @"Need a context");
+    NSAssert(self.currentContext != nil, @"Need a context");
     
-    _currentContext.dragView.center = [recognizer locationInView:_controller.dragPaneView];
+    self.currentContext.draggingView.center = [recognizer locationInView:_controller.dragPaneView];
 }
 
 - (void)finishDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
-    NSAssert(_currentContext != nil, @"Need a context");
+    NSAssert(self.currentContext != nil, @"Need a context");
     
-    [_currentContext.dragView removeFromSuperview];
-    _currentContext = nil;
+    if ([self.currentContext isDraggingCancelled]) {
+        return;
+    }
+    
+    if ([self.dragDelegate respondsToSelector:@selector(dragAndDropController:cancelDraggingWithContext:)]) {
+        [self.dragDelegate dragAndDropController:self.controller cancelDraggingWithContext:self.currentContext];
+    }
+    
+    if (![self.currentContext isDraggingCancelled]) {
+        [self.currentContext cancelDragging];
+    }
+}
+
+
+#pragma mark - Cancelling Dragging
+
+- (void)cancelDragging {
+    [self resetDragRecognizer];
+    self.currentContext = nil;
 }
 
 - (void)resetDragRecognizer {
-    if (_dragRecognizer.enabled) {
-        _dragRecognizer.enabled = NO;
-        _dragRecognizer.enabled = YES;
+    if (self.dragRecognizer.enabled) {
+        self.dragRecognizer.enabled = NO;
+        self.dragRecognizer.enabled = YES;
     }
 }
 

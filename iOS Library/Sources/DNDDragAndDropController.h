@@ -31,7 +31,10 @@
 @protocol DNDDragSourceDelegate <NSObject>
 
 @required
-- (UIView *)dragAndDropController:(DNDDragAndDropController *)controller draggedViewForDragSource:(UIView *)dragSource context:(DNDDragContext *)ctx;
+- (UIView *)dragAndDropController:(DNDDragAndDropController *)controller viewForDraggingWithContext:(DNDDragContext *)context;
+
+@optional
+- (void)dragAndDropController:(DNDDragAndDropController *)controller cancelDraggingWithContext:(DNDDragContext *)context;
 
 @end
 
