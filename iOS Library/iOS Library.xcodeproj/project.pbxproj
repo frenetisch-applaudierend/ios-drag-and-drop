@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447016E11C0B00293EAC /* DNDDragHandler.m */; };
+		5F8B447416E129D200293EAC /* DNDDragContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447316E129D200293EAC /* DNDDragContext.m */; };
 		5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */; };
 		5FDE39C816E10C9F00E8A872 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDE39C716E10C9F00E8A872 /* UIKit.framework */; };
 		5FECCB9B16DE5F92007ED32F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FECCB9A16DE5F92007ED32F /* Foundation.framework */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragHandler.h; sourceTree = "<group>"; };
 		5F8B447016E11C0B00293EAC /* DNDDragHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragHandler.m; sourceTree = "<group>"; };
+		5F8B447216E129D200293EAC /* DNDDragContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragContext.h; sourceTree = "<group>"; };
+		5F8B447316E129D200293EAC /* DNDDragContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragContext.m; sourceTree = "<group>"; };
 		5FDE39C316E1085600E8A872 /* DragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragAndDrop.h; sourceTree = "<group>"; };
 		5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragAndDropController.h; sourceTree = "<group>"; };
 		5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragAndDropController.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				5FDE39C316E1085600E8A872 /* DragAndDrop.h */,
 				5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */,
 				5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */,
+				5F8B447216E129D200293EAC /* DNDDragContext.h */,
+				5F8B447316E129D200293EAC /* DNDDragContext.m */,
 				5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */,
 				5F8B447016E11C0B00293EAC /* DNDDragHandler.m */,
 			);
@@ -144,6 +149,7 @@
 			files = (
 				5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */,
 				5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */,
+				5F8B447416E129D200293EAC /* DNDDragContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +179,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -197,6 +204,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;

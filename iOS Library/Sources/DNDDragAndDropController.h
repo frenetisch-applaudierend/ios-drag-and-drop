@@ -11,6 +11,7 @@
 
 @protocol DNDDragSourceDelegate;
 @protocol DNDDropTargetDelegate;
+@class DNDDragContext;
 
 
 @interface DNDDragAndDropController : NSObject
@@ -30,7 +31,7 @@
 @protocol DNDDragSourceDelegate <NSObject>
 
 @required
-- (UIView *)dragAndDropController:(DNDDragAndDropController *)controller viewForDraggingInDragSource:(UIView *)dragSource location:(CGPoint)location;
+- (UIView *)dragAndDropController:(DNDDragAndDropController *)controller draggedViewForDragSource:(UIView *)dragSource context:(DNDDragContext *)ctx;
 
 @end
 
