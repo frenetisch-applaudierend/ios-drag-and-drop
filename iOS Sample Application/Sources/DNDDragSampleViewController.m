@@ -47,7 +47,7 @@
 }
 
 - (void)dragOperationWillCancel:(DNDDragOperation *)operation {
-    [operation cancelDraggingAnimatedWithDuration:0.2 animations:^{
+    [operation removeDraggingViewAnimatedWithDuration:0.2 animations:^{
         operation.draggingView.alpha = 0.0f;
         operation.draggingView.center = [operation convertPoint:self.dragSourceView.center fromView:self.view];
     }];

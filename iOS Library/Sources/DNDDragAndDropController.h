@@ -43,9 +43,4 @@
 @required
 - (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target;
 
-@optional
-- (void)dragOperation:(DNDDragOperation *)operation didEnterDropTarget:(UIView *)target;
-- (void)dragOperation:(DNDDragOperation *)operation didLeaveDropTarget:(UIView *)target;
-- (BOOL)dragOperation:(DNDDragOperation *)operation shouldPositionDragViewInDropTarget:(UIView *)target;
-
 @end

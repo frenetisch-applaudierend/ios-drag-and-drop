@@ -27,28 +27,28 @@
 
 #pragma mark - Cancel Dragging
 
-- (BOOL)isDraggingCancelled {
+- (BOOL)isDraggingViewRemoved {
     return _canceled;
 }
 
-- (void)cancelDragging {
-    [self beginCancellingDragging];
-    [self completeCancellingDragging];
+- (void)removeDraggingView {
+    [self beginRemovingDraggingView];
+    [self completeRemovingDraggingView];
 }
 
-- (void)cancelDraggingAnimatedWithDuration:(NSTimeInterval)duration animations:(void(^)())animations {
-    [self beginCancellingDragging];
+- (void)removeDraggingViewAnimatedWithDuration:(NSTimeInterval)duration animations:(void(^)())animations {
+    [self beginRemovingDraggingView];
     [UIView animateWithDuration:duration animations:animations completion:^(BOOL finished) {
-        [self completeCancellingDragging];
+        [self completeRemovingDraggingView];
     }];
 }
 
-- (void)beginCancellingDragging {
+- (void)beginRemovingDraggingView {
     _canceled = YES;
     [self.dragHandler cancelDragging];
 }
 
-- (void)completeCancellingDragging {
+- (void)completeRemovingDraggingView {
     [self.draggingView removeFromSuperview];
 }
 

@@ -80,7 +80,7 @@
 - (void)finishDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
     NSAssert(self.currentDragOperation != nil, @"Need a context");
     
-    if ([self.currentDragOperation isDraggingCancelled]) {
+    if ([self.currentDragOperation isDraggingViewRemoved]) {
         return;
     }
     
@@ -101,8 +101,8 @@
 #pragma mark - Managing the Drag View
 
 - (void)removeDragViewIfNecessary {
-    if (![self.currentDragOperation isDraggingCancelled]) {
-        [self.currentDragOperation cancelDragging];
+    if (![self.currentDragOperation isDraggingViewRemoved]) {
+        [self.currentDragOperation removeDraggingView];
     }
 }
 

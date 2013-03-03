@@ -16,15 +16,38 @@
 @property (nonatomic, readonly) NSMutableDictionary *userInfo;
 
 
-#pragma mark - Cancelling a Dragging Operation
+#pragma mark - Removing the Dragging View
 
-- (BOOL)isDraggingCancelled;
+/**
+ * Returns YES if the dragging view was or is being removed.
+ *
+ * Either calling one of the -removeDraggingView / -removeDraggingViewAnimatedWithDuration:animations:
+ * or -beginRemovingDraggingView will cause this method to return YES.
+ */
+- (BOOL)isDraggingViewRemoved;
 
-- (void)cancelDragging;
-- (void)cancelDraggingAnimatedWithDuration:(NSTimeInterval)duration animations:(void(^)())animations;
+/**
+ * Remove the dragging view from the screen.
+ *
+ * This will effectively cancel the current dragging operation.
+ * The delegate is not called when cancelling the drag operation in this way.
+ *
+ * You can optionally perfom the removal animated. For even more control over the removal use
+ * -beginRemovingDraggingView and -completeRemovingDraggingView.
+ */
+- (void)removeDraggingViewAnimatedWithDuration:(NSTimeInterval)duration animations:(void(^)())animations;
+- (void)removeDraggingView;
 
-- (void)beginCancellingDragging;
-- (void)completeCancellingDragging;
+
+/**
+ * Remove the dragging view with the most control.
+ *
+ * Calling -beginRemovingDraggingView will prepare the operation for removal.
+ * After this you can perform any animations or transitions on the dragging view.
+ * -completeRemovingDraggingView will then remove the dragging view from the screen.
+ */
+- (void)beginRemovingDraggingView;
+- (void)completeRemovingDraggingView;
 
 
 #pragma mark - Conversion Helpers
