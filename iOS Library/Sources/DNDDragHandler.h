@@ -19,7 +19,7 @@
 - (instancetype)initWithController:(DNDDragAndDropController *)controller sourceView:(UIView *)source delegate:(id<DNDDragSourceDelegate>)delegate;
 
 @property (nonatomic, readonly, weak) DNDDragAndDropController *controller;
-@property (nonatomic, readonly, weak) UIView *sourceView;
+@property (nonatomic, readonly, weak) UIView *dragSourceView;
 @property (nonatomic, readonly, weak) id<DNDDragSourceDelegate> dragDelegate;
 
 - (void)cancelDragging;

@@ -8,6 +8,7 @@
 
 #import "DNDDropSampleViewController.h"
 #import "DNDSampleDragView.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface DNDDropSampleViewController () <DNDDragSourceDelegate, DNDDropTargetDelegate>
@@ -33,6 +34,8 @@
     
     [self.dragAndDropController registerDragSource:self.dragSourceView withDelegate:self];
     for (UIView *dropTargetView in self.dropTargetViews) {
+        dropTargetView.layer.borderColor = [[UIColor whiteColor] CGColor];
+        dropTargetView.layer.borderWidth = 4.0f;
         [self.dragAndDropController registerDropTarget:dropTargetView withDelegate:self];
     }
 }
@@ -40,7 +43,7 @@
 
 #pragma mark - Drag Source Delegate
 
-- (UIView *)dragViewForDragOperation:(DNDDragOperation *)operation {
+- (UIView *)draggingViewForDragOperation:(DNDDragOperation *)operation {
     UIView *dragView = [[DNDSampleDragView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 150.0f, 75.0f)];
     dragView.alpha = 0.0f;
     [UIView animateWithDuration:0.2 animations:^{
@@ -61,6 +64,15 @@
 
 - (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target {
     target.backgroundColor = operation.draggingView.backgroundColor;
+    target.layer.borderColor = [[UIColor whiteColor] CGColor];
+}
+
+- (void)dragOperation:(DNDDragOperation *)operation didEnterDropTarget:(UIView *)target {
+    target.layer.borderColor = [operation.draggingView.backgroundColor CGColor];
+}
+
+- (void)dragOperation:(DNDDragOperation *)operation didLeaveDropTarget:(UIView *)target {
+    target.layer.borderColor = [[UIColor whiteColor] CGColor];
 }
 
 @end

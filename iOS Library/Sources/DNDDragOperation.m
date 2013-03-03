@@ -16,12 +16,20 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithDragHandler:(DNDDragHandler *)handler {
+- (instancetype)initWithDragHandler:(DNDDragHandler *)handler dragSourceView:(UIView *)source {
     if ((self = [super init])) {
         _dragHandler = handler;
+        _dragSourceView = source;
         _userInfo = [NSMutableDictionary dictionary];
     }
     return self;
+}
+
+
+#pragma mark - Getting Information
+
+- (CGPoint)locationInView:(UIView *)view {
+    return [self convertPoint:self.dragLocation toView:view];
 }
 
 

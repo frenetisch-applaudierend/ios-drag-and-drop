@@ -37,7 +37,7 @@
 
 #pragma mark - Drag Source Delegate
 
-- (UIView *)dragViewForDragOperation:(DNDDragOperation *)operation {
+- (UIView *)draggingViewForDragOperation:(DNDDragOperation *)operation {
     UIView *dragView = [[DNDSampleDragView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 150.0f, 75.0f)];
     dragView.alpha = 0.0f;
     [UIView animateWithDuration:0.2 animations:^{

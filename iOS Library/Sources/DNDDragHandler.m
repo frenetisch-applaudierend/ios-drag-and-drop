@@ -30,21 +30,21 @@
     
     if ((self = [super init])) {
         _controller = controller;
-        _sourceView = source;
+        _dragSourceView = source;
         _dragDelegate = delegate;
         _dragRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleDragGesture:)];
         _dragRecognizer.maximumNumberOfTouches = 1;
-        [_sourceView addGestureRecognizer:_dragRecognizer];
+        [_dragSourceView addGestureRecognizer:_dragRecognizer];
     }
     return self;
 }
 
 - (void)dealloc {
-    [_sourceView removeGestureRecognizer:_dragRecognizer];
+    [_dragSourceView removeGestureRecognizer:_dragRecognizer];
 }
 
 
-#pragma mark - Handling a Drag Gesture
+#pragma mark - Handling the Drag Gesture
 
 - (void)handleDragGesture:(UIGestureRecognizer *)recognizer {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
@@ -59,8 +59,8 @@
 - (void)beginDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
     NSAssert(self.currentDragOperation == nil, @"Should not yet have a context");
     
-    self.currentDragOperation = [[DNDDragOperation alloc] initWithDragHandler:self];
-    UIView *dragView = [self.dragDelegate dragViewForDragOperation:self.currentDragOperation];
+    self.currentDragOperation = [[DNDDragOperation alloc] initWithDragHandler:self dragSourceView:self.dragSourceView];
+    UIView *dragView = [self.dragDelegate draggingViewForDragOperation:self.currentDragOperation];
     if (dragView == nil) {
         [self cancelDragging];
         return;
@@ -74,7 +74,17 @@
 - (void)updateDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
     NSAssert(self.currentDragOperation != nil, @"Need a context");
     
-    self.currentDragOperation.draggingView.center = [recognizer locationInView:_controller.dragPaneView];
+    if ([self.currentDragOperation isDraggingViewRemoved]) {
+        return;
+    }
+    
+    self.currentDragOperation.dragLocation = [recognizer locationInView:self.controller.dragPaneView];
+    self.currentDragOperation.draggingView.center = [recognizer locationInView:self.controller.dragPaneView];
+    
+    UIView *dropTarget = [self dropTargetAtLocation:[recognizer locationInView:self.controller.dragPaneView]];
+    if (dropTarget != self.currentDragOperation.dropTargetView) {
+        [self switchCurrentDropTargetToView:dropTarget];
+    }
 }
 
 - (void)finishDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
@@ -84,30 +94,17 @@
         return;
     }
     
-    UIView *dropTarget = [self dropTargetAtLocation:[recognizer locationInView:self.controller.dragPaneView]];
-    if (dropTarget != nil) {
-        id<DNDDropTargetDelegate> dropDelegate = [self.controller delegateForDropTarget:dropTarget];
-        [dropDelegate dragOperation:self.currentDragOperation didDropInDropTarget:dropTarget];
+    if (self.currentDragOperation.dropTargetView != nil) {
+        [self notifyDropInTarget:self.currentDragOperation.dropTargetView];
         [self removeDragViewIfNecessary];
     } else {
-        if ([self.dragDelegate respondsToSelector:@selector(dragOperationWillCancel:)]) {
-            [self.dragDelegate dragOperationWillCancel:self.currentDragOperation];
-        }
+        [self notifyDragCancel];
         [self removeDragViewIfNecessary];
     }
 }
 
 
-#pragma mark - Managing the Drag View
-
-- (void)removeDragViewIfNecessary {
-    if (![self.currentDragOperation isDraggingViewRemoved]) {
-        [self.currentDragOperation removeDraggingView];
-    }
-}
-
-
-#pragma mark - Finding a Drop Target
+#pragma mark - Helper Methods
 
 - (UIView *)dropTargetAtLocation:(CGPoint)location {
     BOOL userInteractionEnabled = self.currentDragOperation.draggingView.userInteractionEnabled;
@@ -120,8 +117,17 @@
     return dropTarget;
 }
 
+- (void)switchCurrentDropTargetToView:(UIView *)newDropTarget {
+    [self notifyLeaveDropTarget];
+    self.currentDragOperation.dropTargetView = newDropTarget;
+    [self notifyEnterDropTarget];
+}
 
-#pragma mark - Cancelling Dragging
+- (void)removeDragViewIfNecessary {
+    if (![self.currentDragOperation isDraggingViewRemoved]) {
+        [self.currentDragOperation removeDraggingView];
+    }
+}
 
 - (void)cancelDragging {
     [self resetDragRecognizer];
@@ -132,6 +138,33 @@
     if (self.dragRecognizer.enabled) {
         self.dragRecognizer.enabled = NO;
         self.dragRecognizer.enabled = YES;
+    }
+}
+
+
+#pragma mark - Delegate Notifications
+
+- (void)notifyEnterDropTarget {
+    id<DNDDropTargetDelegate> delegate = [self.controller delegateForDropTarget:self.currentDragOperation.dropTargetView];
+    if ([delegate respondsToSelector:@selector(dragOperation:didEnterDropTarget:)]) {
+        [delegate dragOperation:self.currentDragOperation didEnterDropTarget:self.currentDragOperation.dropTargetView];
+    }
+}
+
+- (void)notifyLeaveDropTarget {
+    id<DNDDropTargetDelegate> delegate = [self.controller delegateForDropTarget:self.currentDragOperation.dropTargetView];
+    if ([delegate respondsToSelector:@selector(dragOperation:didLeaveDropTarget:)]) {
+        [delegate dragOperation:self.currentDragOperation didLeaveDropTarget:self.currentDragOperation.dropTargetView];
+    }
+}
+
+- (void)notifyDropInTarget:(UIView *)dropTarget {
+    [[self.controller delegateForDropTarget:dropTarget] dragOperation:self.currentDragOperation didDropInDropTarget:dropTarget];
+}
+
+- (void)notifyDragCancel {
+    if ([self.dragDelegate respondsToSelector:@selector(dragOperationWillCancel:)]) {
+        [self.dragDelegate dragOperationWillCancel:self.currentDragOperation];
     }
 }
 

@@ -11,9 +11,17 @@
 
 @interface DNDDragOperation : NSObject
 
-@property (nonatomic, readonly) UIView *dragSourceView;
-@property (nonatomic, readonly) UIView *draggingView;
-@property (nonatomic, readonly) NSMutableDictionary *userInfo;
+#pragma mark - Query Drag Operation Information
+
+@property (nonatomic, readonly) UIView *dragSourceView;        // The drag source where this operation originated from
+@property (nonatomic, readonly) UIView *draggingView;          // The currently dragged view
+@property (nonatomic, readonly) UIView *dropTargetView;        // The current drop target (nil if not over a dorp target)
+@property (nonatomic, readonly) NSMutableDictionary *userInfo; // Place to store any additional information about the drag operation
+
+/**
+ * The current location of the drag operation relative to the given view.
+ */
+- (CGPoint)locationInView:(UIView *)view;
 
 
 #pragma mark - Removing the Dragging View
@@ -52,6 +60,9 @@
 
 #pragma mark - Conversion Helpers
 
+/**
+ * Convert points and rects to and from the drag pane view (the dragging views superview).
+ */
 - (CGPoint)convertPoint:(CGPoint)point toView:(UIView *)view;
 - (CGPoint)convertPoint:(CGPoint)point fromView:(UIView *)view;
 - (CGRect)convertRect:(CGRect)rect toView:(UIView *)view;

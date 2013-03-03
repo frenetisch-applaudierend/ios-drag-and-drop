@@ -50,7 +50,7 @@
 }
 
 - (id<DNDDropTargetDelegate>)delegateForDropTarget:(UIView *)target {
-    return [_dropTargets objectForKey:target];
+    return (target != nil ? [_dropTargets objectForKey:target] : nil);
 }
 
 

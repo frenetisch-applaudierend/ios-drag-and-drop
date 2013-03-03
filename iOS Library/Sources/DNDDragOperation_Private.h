@@ -12,9 +12,11 @@
 
 @interface DNDDragOperation ()
 
-- (instancetype)initWithDragHandler:(DNDDragHandler *)handler;
+- (instancetype)initWithDragHandler:(DNDDragHandler *)handler dragSourceView:(UIView *)source;
 
 @property (nonatomic, strong) UIView *draggingView;
+@property (nonatomic, strong) UIView *dropTargetView;
+@property (nonatomic, assign) CGPoint dragLocation;
 @property (nonatomic, weak) DNDDragHandler *dragHandler;
 
 @end

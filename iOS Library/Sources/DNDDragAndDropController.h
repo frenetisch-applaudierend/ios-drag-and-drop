@@ -31,7 +31,7 @@
 @protocol DNDDragSourceDelegate <NSObject>
 
 @required
-- (UIView *)dragViewForDragOperation:(DNDDragOperation *)operation;
+- (UIView *)draggingViewForDragOperation:(DNDDragOperation *)operation;
 
 @optional
 - (void)dragOperationWillCancel:(DNDDragOperation *)operation;
@@ -42,5 +42,9 @@
 
 @required
 - (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target;
+
+@optional
+- (void)dragOperation:(DNDDragOperation *)operation didEnterDropTarget:(UIView *)target;
+- (void)dragOperation:(DNDDragOperation *)operation didLeaveDropTarget:(UIView *)target;
 
 @end
