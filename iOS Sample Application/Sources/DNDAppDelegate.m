@@ -9,6 +9,7 @@
 #import "DNDAppDelegate.h"
 #import "DNDDragSampleViewController.h"
 #import "DNDDropSampleViewController.h"
+#import "DNDBlindSpotSampleViewController.h"
 
 
 @implementation DNDAppDelegate
@@ -21,7 +22,8 @@
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[
         [[DNDDragSampleViewController alloc] init],
-        [[DNDDropSampleViewController alloc] init]
+        [[DNDDropSampleViewController alloc] init],
+        [[DNDBlindSpotSampleViewController alloc] init]
     ];
     self.window.rootViewController = tabBarController;
     

@@ -12,6 +12,8 @@
 		5F8970AE16E37980007DBAF1 /* UIColor+DNDRandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8970AD16E37980007DBAF1 /* UIColor+DNDRandomColor.m */; };
 		5F8970B116E37A83007DBAF1 /* DNDSampleDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8970B016E37A83007DBAF1 /* DNDSampleDragView.m */; };
 		5F8970B616E37B7D007DBAF1 /* DNDDropSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F8970B516E37B7D007DBAF1 /* DNDDropSampleViewController.xib */; };
+		5F8970BC16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8970BA16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.m */; };
+		5F8970BD16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F8970BB16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.xib */; };
 		5F8B448216E12E6500293EAC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8B448116E12E6500293EAC /* UIKit.framework */; };
 		5F8B448416E12E6500293EAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8B448316E12E6500293EAC /* Foundation.framework */; };
 		5F8B448616E12E6500293EAC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8B448516E12E6500293EAC /* CoreGraphics.framework */; };
@@ -33,6 +35,9 @@
 		5F8970AF16E37A83007DBAF1 /* DNDSampleDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDSampleDragView.h; sourceTree = "<group>"; };
 		5F8970B016E37A83007DBAF1 /* DNDSampleDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDSampleDragView.m; sourceTree = "<group>"; };
 		5F8970B516E37B7D007DBAF1 /* DNDDropSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DNDDropSampleViewController.xib; sourceTree = "<group>"; };
+		5F8970B916E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDBlindSpotSampleViewController.h; sourceTree = "<group>"; };
+		5F8970BA16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDBlindSpotSampleViewController.m; sourceTree = "<group>"; };
+		5F8970BB16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DNDBlindSpotSampleViewController.xib; sourceTree = "<group>"; };
 		5F8B447E16E12E6500293EAC /* DragDropSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragDropSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8B448116E12E6500293EAC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F8B448316E12E6500293EAC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +101,16 @@
 			name = "Drag And Drop";
 			sourceTree = "<group>";
 		};
+		5F8970B816E3D9E3007DBAF1 /* Blind Spot */ = {
+			isa = PBXGroup;
+			children = (
+				5F8970B916E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.h */,
+				5F8970BA16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.m */,
+				5F8970BB16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.xib */,
+			);
+			name = "Blind Spot";
+			sourceTree = "<group>";
+		};
 		5F8B447516E12E6500293EAC = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +148,7 @@
 				5F8970B216E37A88007DBAF1 /* Common */,
 				5F8970B316E37A95007DBAF1 /* Just Dragging */,
 				5F8970B416E37B62007DBAF1 /* Drag And Drop */,
+				5F8970B816E3D9E3007DBAF1 /* Blind Spot */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -208,6 +224,7 @@
 				5F8B449816E12E6500293EAC /* Default-568h@2x.png in Resources */,
 				5F8970A716E37744007DBAF1 /* DNDDragSampleViewController.xib in Resources */,
 				5F8970B616E37B7D007DBAF1 /* DNDDropSampleViewController.xib in Resources */,
+				5F8970BD16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +241,7 @@
 				5F8970A516E14753007DBAF1 /* DNDDropSampleViewController.m in Sources */,
 				5F8970AE16E37980007DBAF1 /* UIColor+DNDRandomColor.m in Sources */,
 				5F8970B116E37A83007DBAF1 /* DNDSampleDragView.m in Sources */,
+				5F8970BC16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -79,11 +79,14 @@
     }
     
     self.currentDragOperation.dragLocation = [recognizer locationInView:self.controller.dragPaneView];
-    self.currentDragOperation.draggingView.center = [recognizer locationInView:self.controller.dragPaneView];
     
     UIView *dropTarget = [self dropTargetAtLocation:[recognizer locationInView:self.controller.dragPaneView]];
     if (dropTarget != self.currentDragOperation.dropTargetView) {
         [self switchCurrentDropTargetToView:dropTarget];
+    }
+    
+    if ([self notifyShouldPositionInDropTarget]) {
+        self.currentDragOperation.draggingView.center = [recognizer locationInView:self.controller.dragPaneView];
     }
 }
 
@@ -142,7 +145,7 @@
 }
 
 
-#pragma mark - Delegate Notifications
+#pragma mark - Delegate Interaction
 
 - (void)notifyEnterDropTarget {
     id<DNDDropTargetDelegate> delegate = [self.controller delegateForDropTarget:self.currentDragOperation.dropTargetView];
@@ -155,6 +158,15 @@
     id<DNDDropTargetDelegate> delegate = [self.controller delegateForDropTarget:self.currentDragOperation.dropTargetView];
     if ([delegate respondsToSelector:@selector(dragOperation:didLeaveDropTarget:)]) {
         [delegate dragOperation:self.currentDragOperation didLeaveDropTarget:self.currentDragOperation.dropTargetView];
+    }
+}
+
+- (BOOL)notifyShouldPositionInDropTarget {
+    id<DNDDropTargetDelegate> delegate = [self.controller delegateForDropTarget:self.currentDragOperation.dropTargetView];
+    if ([delegate respondsToSelector:@selector(dragOperation:shouldPositionDragViewInDropTarget:)]) {
+        return [delegate dragOperation:self.currentDragOperation shouldPositionDragViewInDropTarget:self.currentDragOperation.dropTargetView];
+    } else {
+        return YES;
     }
 }
 

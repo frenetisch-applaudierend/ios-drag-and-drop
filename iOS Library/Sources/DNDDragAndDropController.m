@@ -58,6 +58,7 @@
 
 - (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate {
     NSParameterAssert(source != nil);
+    NSParameterAssert(source.userInteractionEnabled);
     NSParameterAssert(delegate != nil);
     
     [_dragSources setObject:[[DNDDragHandler alloc] initWithController:self sourceView:source delegate:delegate] forKey:source];
@@ -71,6 +72,7 @@
 
 - (void)registerDropTarget:(UIView *)target withDelegate:(id<DNDDropTargetDelegate>)delegate {
     NSParameterAssert(target != nil);
+    NSParameterAssert(target.userInteractionEnabled);
     NSParameterAssert(delegate != nil);
     
     [_dropTargets setObject:delegate forKey:target];
