@@ -38,7 +38,7 @@
 		5F8970B916E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDBlindSpotSampleViewController.h; sourceTree = "<group>"; };
 		5F8970BA16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDBlindSpotSampleViewController.m; sourceTree = "<group>"; };
 		5F8970BB16E3DA0A007DBAF1 /* DNDBlindSpotSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DNDBlindSpotSampleViewController.xib; sourceTree = "<group>"; };
-		5F8B447E16E12E6500293EAC /* DragDropSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragDropSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8B447E16E12E6500293EAC /* DnD Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DnD Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8B448116E12E6500293EAC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F8B448316E12E6500293EAC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5F8B448516E12E6500293EAC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,7 +124,7 @@
 		5F8B447F16E12E6500293EAC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F8B447E16E12E6500293EAC /* DragDropSample.app */,
+				5F8B447E16E12E6500293EAC /* DnD Sample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 			);
 			name = "iOS Sample Application";
 			productName = "iOS Sample Application";
-			productReference = 5F8B447E16E12E6500293EAC /* DragDropSample.app */;
+			productReference = 5F8B447E16E12E6500293EAC /* DnD Sample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -319,7 +319,7 @@
 				GCC_PREFIX_HEADER = Sources/Prefix.pch;
 				INFOPLIST_FILE = Sources/Info.plist;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = DragDropSample;
+				PRODUCT_NAME = "DnD Sample";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -331,7 +331,7 @@
 				GCC_PREFIX_HEADER = Sources/Prefix.pch;
 				INFOPLIST_FILE = Sources/Info.plist;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = DragDropSample;
+				PRODUCT_NAME = "DnD Sample";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

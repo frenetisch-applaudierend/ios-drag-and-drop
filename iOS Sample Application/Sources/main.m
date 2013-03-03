@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "DNDAppDelegate.h"
 
-int main(int argc, char *argv[])
-{
+
+int main(int argc, char *argv[]) {
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([DNDAppDelegate class]));
     }
