@@ -1,6 +1,6 @@
 //
 //  DNDDragHandler.m
-//  iOS Library
+//  ios-drag-and-drop
 //
 //  Created by Markus Gasser on 3/1/13.
 //  Copyright (c) 2013 Team RG. All rights reserved.
@@ -8,13 +8,13 @@
 
 #import "DNDDragHandler.h"
 #import "DNDDragAndDropController_Private.h"
-#import "DNDDragContext_Private.h"
+#import "DNDDragOperation_Private.h"
 
 
 @interface DNDDragHandler ()
 
 @property (nonatomic, strong) UIPanGestureRecognizer *dragRecognizer;
-@property (nonatomic, strong) DNDDragContext *currentContext;
+@property (nonatomic, strong) DNDDragOperation *currentDragOperation;
 
 @end
 
@@ -57,40 +57,67 @@
 }
 
 - (void)beginDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
-    NSAssert(self.currentContext == nil, @"Should not yet have a context");
+    NSAssert(self.currentDragOperation == nil, @"Should not yet have a context");
     
-    self.currentContext = [[DNDDragContext alloc] initWithDragHandler:self];
-    UIView *dragView = [self.dragDelegate dragAndDropController:self.controller viewForDraggingWithContext:self.currentContext];
+    self.currentDragOperation = [[DNDDragOperation alloc] initWithDragHandler:self];
+    UIView *dragView = [self.dragDelegate dragViewForDragOperation:self.currentDragOperation];
     if (dragView == nil) {
         [self cancelDragging];
         return;
     }
     
-    self.currentContext.draggingView = dragView;
+    self.currentDragOperation.draggingView = dragView;
     [self.controller.dragPaneView addSubview:dragView];
     dragView.center = [recognizer locationInView:self.controller.dragPaneView];
 }
 
 - (void)updateDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
-    NSAssert(self.currentContext != nil, @"Need a context");
+    NSAssert(self.currentDragOperation != nil, @"Need a context");
     
-    self.currentContext.draggingView.center = [recognizer locationInView:_controller.dragPaneView];
+    self.currentDragOperation.draggingView.center = [recognizer locationInView:_controller.dragPaneView];
 }
 
 - (void)finishDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
-    NSAssert(self.currentContext != nil, @"Need a context");
+    NSAssert(self.currentDragOperation != nil, @"Need a context");
     
-    if ([self.currentContext isDraggingCancelled]) {
+    if ([self.currentDragOperation isDraggingCancelled]) {
         return;
     }
     
-    if ([self.dragDelegate respondsToSelector:@selector(dragAndDropController:cancelDraggingWithContext:)]) {
-        [self.dragDelegate dragAndDropController:self.controller cancelDraggingWithContext:self.currentContext];
+    UIView *dropTarget = [self dropTargetAtLocation:[recognizer locationInView:self.controller.dragPaneView]];
+    if (dropTarget != nil) {
+        id<DNDDropTargetDelegate> dropDelegate = [self.controller delegateForDropTarget:dropTarget];
+        [dropDelegate dragOperation:self.currentDragOperation didDropInDropTarget:dropTarget];
+        [self removeDragViewIfNecessary];
+    } else {
+        if ([self.dragDelegate respondsToSelector:@selector(dragOperationWillCancel:)]) {
+            [self.dragDelegate dragOperationWillCancel:self.currentDragOperation];
+        }
+        [self removeDragViewIfNecessary];
     }
+}
+
+
+#pragma mark - Managing the Drag View
+
+- (void)removeDragViewIfNecessary {
+    if (![self.currentDragOperation isDraggingCancelled]) {
+        [self.currentDragOperation cancelDragging];
+    }
+}
+
+
+#pragma mark - Finding a Drop Target
+
+- (UIView *)dropTargetAtLocation:(CGPoint)location {
+    BOOL userInteractionEnabled = self.currentDragOperation.draggingView.userInteractionEnabled;
+    UIView *dropTarget;
     
-    if (![self.currentContext isDraggingCancelled]) {
-        [self.currentContext cancelDragging];
-    }
+    self.currentDragOperation.draggingView.userInteractionEnabled = NO; // make sure it's not returned by -hitTest:withEvent:
+    dropTarget = [self.controller dropTargetAtLocation:location];
+    self.currentDragOperation.draggingView.userInteractionEnabled = userInteractionEnabled;
+    
+    return dropTarget;
 }
 
 
@@ -98,7 +125,7 @@
 
 - (void)cancelDragging {
     [self resetDragRecognizer];
-    self.currentContext = nil;
+    self.currentDragOperation = nil;
 }
 
 - (void)resetDragRecognizer {

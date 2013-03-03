@@ -1,16 +1,16 @@
 //
-//  DNDDragContext.m
-//  iOS Library
+//  DNDDragOperation.m
+//  ios-drag-and-drop
 //
 //  Created by Markus Gasser on 3/1/13.
 //  Copyright (c) 2013 Team RG. All rights reserved.
 //
 
-#import "DNDDragContext_Private.h"
+#import "DNDDragOperation_Private.h"
 #import "DNDDragAndDropController_Private.h"
 
 
-@implementation DNDDragContext {
+@implementation DNDDragOperation {
     BOOL _canceled;
 }
 

@@ -1,26 +1,26 @@
 //
-//  DNDDragSampleViewController.m
+//  DNDDropSampleViewController.m
 //  iOS Sample Application
 //
 //  Created by Markus Gasser on 3/1/13.
 //  Copyright (c) 2013 Team RG. All rights reserved.
 //
 
-#import "DNDDragSampleViewController.h"
+#import "DNDDropSampleViewController.h"
 #import "DNDSampleDragView.h"
 
 
-@interface DNDDragSampleViewController () <DNDDragSourceDelegate>
+@interface DNDDropSampleViewController () <DNDDragSourceDelegate, DNDDropTargetDelegate>
 @end
 
 
-@implementation DNDDragSampleViewController
+@implementation DNDDropSampleViewController
 
 #pragma mark - Initialization
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        self.title = @"Just Dragging";
+        self.title = @"Drag and Drop";
     }
     return self;
 }
@@ -32,6 +32,9 @@
     [super viewDidLoad];
     
     [self.dragAndDropController registerDragSource:self.dragSourceView withDelegate:self];
+    for (UIView *dropTargetView in self.dropTargetViews) {
+        [self.dragAndDropController registerDropTarget:dropTargetView withDelegate:self];
+    }
 }
 
 
@@ -51,6 +54,13 @@
         operation.draggingView.alpha = 0.0f;
         operation.draggingView.center = [operation convertPoint:self.dragSourceView.center fromView:self.view];
     }];
+}
+
+
+#pragma mark - Drop Target Delegate
+
+- (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target {
+    target.backgroundColor = operation.draggingView.backgroundColor;
 }
 
 @end

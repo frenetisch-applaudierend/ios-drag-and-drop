@@ -1,5 +1,5 @@
 //
-//  DNDDragSampleViewController.h
+//  DNDDropSampleViewController.h
 //  iOS Sample Application
 //
 //  Created by Markus Gasser on 3/1/13.
@@ -10,8 +10,9 @@
 #import <DragAndDrop/DragAndDrop.h>
 
 
-@interface DNDDragSampleViewController : UIViewController
+@interface DNDDropSampleViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIView *dragSourceView;
+@property (nonatomic, strong) IBOutletCollection(UIView) NSArray *dropTargetViews;
 
 @end

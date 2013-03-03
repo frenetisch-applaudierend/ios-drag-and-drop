@@ -1,6 +1,6 @@
 //
 //  DNDDragAndDropController.h
-//  iOS Library
+//  ios-drag-and-drop
 //
 //  Created by Markus Gasser on 3/1/13.
 //  Copyright (c) 2013 Team RG. All rights reserved.
@@ -11,7 +11,7 @@
 
 @protocol DNDDragSourceDelegate;
 @protocol DNDDropTargetDelegate;
-@class DNDDragContext;
+@class DNDDragOperation;
 
 
 @interface DNDDragAndDropController : NSObject
@@ -23,7 +23,7 @@
 - (void)unregisterDragSource:(UIView *)source;
 
 - (void)registerDropTarget:(UIView *)target withDelegate:(id<DNDDropTargetDelegate>)delegate;
-- (void)unregisterDropTarget:(UIView *)source;
+- (void)unregisterDropTarget:(UIView *)target;
 
 @end
 
@@ -31,12 +31,21 @@
 @protocol DNDDragSourceDelegate <NSObject>
 
 @required
-- (UIView *)dragAndDropController:(DNDDragAndDropController *)controller viewForDraggingWithContext:(DNDDragContext *)context;
+- (UIView *)dragViewForDragOperation:(DNDDragOperation *)operation;
 
 @optional
-- (void)dragAndDropController:(DNDDragAndDropController *)controller cancelDraggingWithContext:(DNDDragContext *)context;
+- (void)dragOperationWillCancel:(DNDDragOperation *)operation;
 
 @end
 
 @protocol DNDDropTargetDelegate <NSObject>
+
+@required
+- (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target;
+
+@optional
+- (void)dragOperation:(DNDDragOperation *)operation didEnterDropTarget:(UIView *)target;
+- (void)dragOperation:(DNDDragOperation *)operation didLeaveDropTarget:(UIView *)target;
+- (BOOL)dragOperation:(DNDDragOperation *)operation shouldPositionDragViewInDropTarget:(UIView *)target;
+
 @end

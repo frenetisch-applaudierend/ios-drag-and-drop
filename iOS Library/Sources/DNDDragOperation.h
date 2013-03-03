@@ -1,6 +1,6 @@
 //
-//  DNDDragContext.h
-//  iOS Library
+//  DNDDragOperation.h
+//  ios-drag-and-drop
 //
 //  Created by Markus Gasser on 3/1/13.
 //  Copyright (c) 2013 Team RG. All rights reserved.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DNDDragContext : NSObject
+@interface DNDDragOperation : NSObject
 
 @property (nonatomic, readonly) UIView *dragSourceView;
 @property (nonatomic, readonly) UIView *draggingView;

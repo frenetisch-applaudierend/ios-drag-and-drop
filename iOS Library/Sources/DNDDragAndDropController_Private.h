@@ -1,6 +1,6 @@
 //
 //  DNDDragAndDropController_Private.h
-//  iOS Library
+//  ios-drag-and-drop
 //
 //  Created by Markus Gasser on 3/1/13.
 //  Copyright (c) 2013 Team RG. All rights reserved.
@@ -13,5 +13,8 @@
 @interface DNDDragAndDropController ()
 
 @property (nonatomic, readonly) UIView *dragPaneView;
+
+- (UIView *)dropTargetAtLocation:(CGPoint)location;
+- (id<DNDDropTargetDelegate>)delegateForDropTarget:(UIView *)target;
 
 @end

@@ -1,6 +1,6 @@
 //
 //  DNDDragHandler.h
-//  iOS Library
+//  ios-drag-and-drop
 //
 //  Created by Markus Gasser on 3/1/13.
 //  Copyright (c) 2013 Team RG. All rights reserved.
@@ -11,7 +11,7 @@
 
 @class DNDDragAndDropController;
 @protocol DNDDragSourceDelegate;
-@class DNDDragContext;
+@class DNDDragOperation;
 
 
 @interface DNDDragHandler : NSObject

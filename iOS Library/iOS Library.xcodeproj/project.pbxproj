@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F8970AA16E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8970A816E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F8970AB16E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8970A916E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.m */; };
 		5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447016E11C0B00293EAC /* DNDDragHandler.m */; };
-		5F8B447416E129D200293EAC /* DNDDragContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447316E129D200293EAC /* DNDDragContext.m */; };
+		5F8B447416E129D200293EAC /* DNDDragOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447316E129D200293EAC /* DNDDragOperation.m */; };
 		5F8C868816E1308100F6161B /* DragAndDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C316E1085600E8A872 /* DragAndDrop.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F8C868A16E1308A00F6161B /* DNDDragContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B447216E129D200293EAC /* DNDDragContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F8C868A16E1308A00F6161B /* DNDDragOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B447216E129D200293EAC /* DNDDragOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F8C868B16E1308A00F6161B /* DNDDragHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */; settings = {ATTRIBUTES = (); }; };
-		5F8C868F16E1348F00F6161B /* DNDDragContext_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C868E16E1348F00F6161B /* DNDDragContext_Private.h */; };
+		5F8C868F16E1348F00F6161B /* DNDDragOperation_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C868E16E1348F00F6161B /* DNDDragOperation_Private.h */; };
 		5F8C869116E137CD00F6161B /* DNDDragAndDropController_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */; };
 		5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */; };
 		5FDE39C816E10C9F00E8A872 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDE39C716E10C9F00E8A872 /* UIKit.framework */; };
@@ -21,11 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F8970A816E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DNDDragAndDrop.h"; sourceTree = "<group>"; };
+		5F8970A916E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DNDDragAndDrop.m"; sourceTree = "<group>"; };
 		5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragHandler.h; sourceTree = "<group>"; };
 		5F8B447016E11C0B00293EAC /* DNDDragHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragHandler.m; sourceTree = "<group>"; };
-		5F8B447216E129D200293EAC /* DNDDragContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragContext.h; sourceTree = "<group>"; };
-		5F8B447316E129D200293EAC /* DNDDragContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragContext.m; sourceTree = "<group>"; };
-		5F8C868E16E1348F00F6161B /* DNDDragContext_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragContext_Private.h; sourceTree = "<group>"; };
+		5F8B447216E129D200293EAC /* DNDDragOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragOperation.h; sourceTree = "<group>"; };
+		5F8B447316E129D200293EAC /* DNDDragOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragOperation.m; sourceTree = "<group>"; };
+		5F8C868E16E1348F00F6161B /* DNDDragOperation_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragOperation_Private.h; sourceTree = "<group>"; };
 		5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNDDragAndDropController_Private.h; sourceTree = "<group>"; };
 		5FDE39C316E1085600E8A872 /* DragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragAndDrop.h; sourceTree = "<group>"; };
 		5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragAndDropController.h; sourceTree = "<group>"; };
@@ -85,11 +89,13 @@
 				5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */,
 				5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */,
 				5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */,
-				5F8B447216E129D200293EAC /* DNDDragContext.h */,
-				5F8C868E16E1348F00F6161B /* DNDDragContext_Private.h */,
-				5F8B447316E129D200293EAC /* DNDDragContext.m */,
+				5F8B447216E129D200293EAC /* DNDDragOperation.h */,
+				5F8C868E16E1348F00F6161B /* DNDDragOperation_Private.h */,
+				5F8B447316E129D200293EAC /* DNDDragOperation.m */,
 				5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */,
 				5F8B447016E11C0B00293EAC /* DNDDragHandler.m */,
+				5F8970A816E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.h */,
+				5F8970A916E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -103,10 +109,11 @@
 			files = (
 				5F8C868816E1308100F6161B /* DragAndDrop.h in Headers */,
 				5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */,
-				5F8C868A16E1308A00F6161B /* DNDDragContext.h in Headers */,
+				5F8C868A16E1308A00F6161B /* DNDDragOperation.h in Headers */,
 				5F8C868B16E1308A00F6161B /* DNDDragHandler.h in Headers */,
-				5F8C868F16E1348F00F6161B /* DNDDragContext_Private.h in Headers */,
+				5F8C868F16E1348F00F6161B /* DNDDragOperation_Private.h in Headers */,
 				5F8C869116E137CD00F6161B /* DNDDragAndDropController_Private.h in Headers */,
+				5F8970AA16E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +170,8 @@
 			files = (
 				5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */,
 				5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */,
-				5F8B447416E129D200293EAC /* DNDDragContext.m in Sources */,
+				5F8B447416E129D200293EAC /* DNDDragOperation.m in Sources */,
+				5F8970AB16E377E9007DBAF1 /* UIViewController+DNDDragAndDrop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
