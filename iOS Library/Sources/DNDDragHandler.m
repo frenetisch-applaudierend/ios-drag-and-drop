@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) UIPanGestureRecognizer *dragRecognizer;
 @property (nonatomic, strong) DNDDragOperation *currentDragOperation;
+@property (nonatomic, assign) BOOL isCancelled;
 
 @end
 
@@ -60,6 +61,9 @@
     NSAssert(self.currentDragOperation == nil, @"Should not yet have a context");
     
     self.currentDragOperation = [[DNDDragOperation alloc] initWithDragHandler:self dragSourceView:self.dragSourceView];
+    self.currentDragOperation.dragLocation = [recognizer locationInView:self.controller.dragPaneView];
+    self.isCancelled = NO;
+    
     UIView *dragView = [self.dragDelegate draggingViewForDragOperation:self.currentDragOperation];
     if (dragView == nil) {
         [self cancelDragging];
@@ -74,7 +78,7 @@
 - (void)updateDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
     NSAssert(self.currentDragOperation != nil, @"Need a context");
     
-    if ([self.currentDragOperation isDraggingViewRemoved]) {
+    if ([self.currentDragOperation isDraggingViewRemoved] || self.isCancelled) {
         return;
     }
     
@@ -93,7 +97,7 @@
 - (void)finishDraggingForGestureRecognizer:(UIGestureRecognizer *)recognizer {
     NSAssert(self.currentDragOperation != nil, @"Need a context");
     
-    if ([self.currentDragOperation isDraggingViewRemoved]) {
+    if ([self.currentDragOperation isDraggingViewRemoved] || self.isCancelled) {
         return;
     }
     
@@ -133,6 +137,7 @@
 }
 
 - (void)cancelDragging {
+    self.isCancelled = YES;
     [self resetDragRecognizer];
     self.currentDragOperation = nil;
 }
