@@ -13,5 +13,6 @@
 @interface DNDDragSampleViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIView *dragSourceView;
+@property (nonatomic, strong) IBOutlet DNDDragAndDropController *dragAndDropController;
 
 @end

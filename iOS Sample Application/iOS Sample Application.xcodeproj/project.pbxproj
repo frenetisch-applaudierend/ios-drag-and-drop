@@ -151,6 +151,8 @@
 		5F8B448716E12E6500293EAC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5F8B448F16E12E6500293EAC /* Prefix.pch */,
+				5F8B448D16E12E6500293EAC /* main.m */,
 				5F8B449016E12E6500293EAC /* DNDAppDelegate.h */,
 				5F8B449116E12E6500293EAC /* DNDAppDelegate.m */,
 				5F8970B216E37A88007DBAF1 /* Common */,
@@ -166,8 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				5F8B448916E12E6500293EAC /* Info.plist */,
-				5F8B448D16E12E6500293EAC /* main.m */,
-				5F8B448F16E12E6500293EAC /* Prefix.pch */,
 				5F8B449316E12E6500293EAC /* Default.png */,
 				5F8B449516E12E6500293EAC /* Default@2x.png */,
 				5F8B449716E12E6500293EAC /* Default-568h@2x.png */,

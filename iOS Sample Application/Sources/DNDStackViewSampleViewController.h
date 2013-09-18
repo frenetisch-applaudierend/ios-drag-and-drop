@@ -17,5 +17,6 @@
 
 @property (nonatomic, weak) IBOutlet DNDStackSampleView *leftStackView;
 @property (nonatomic, weak) IBOutlet DNDStackSampleView *rightStackView;
+@property (nonatomic, strong) IBOutlet DNDDragAndDropController *dragAndDropController;
 
 @end

@@ -14,5 +14,6 @@
 
 @property (nonatomic, weak) IBOutlet UIView *dragSourceView;
 @property (nonatomic, strong) IBOutletCollection(UIView) NSArray *dropTargetViews;
+@property (nonatomic, strong) IBOutlet DNDDragAndDropController *dragAndDropController;
 
 @end
