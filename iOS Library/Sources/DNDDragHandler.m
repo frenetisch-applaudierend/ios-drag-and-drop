@@ -24,7 +24,10 @@
 
 #pragma mark - Initialization
 
-- (instancetype)initWithController:(DNDDragAndDropController *)controller sourceView:(UIView *)source delegate:(id<DNDDragSourceDelegate>)delegate {
+- (instancetype)initWithController:(DNDDragAndDropController *)controller
+                        sourceView:(UIView *)source
+                          delegate:(id<DNDDragSourceDelegate>)delegate
+{
     NSParameterAssert(controller != nil);
     NSParameterAssert(source != nil);
     NSParameterAssert(delegate != nil);
@@ -89,7 +92,7 @@
         [self switchCurrentDropTargetToView:dropTarget];
     }
     
-    if ([self notifyShouldPositionInDropTarget]) {
+    if ([self shouldPositionInDropTarget:self.currentDragOperation.dropTargetView]) {
         self.currentDragOperation.draggingView.center = [recognizer locationInView:self.controller.dragPaneView];
     }
 }
@@ -166,15 +169,6 @@
     }
 }
 
-- (BOOL)notifyShouldPositionInDropTarget {
-    id<DNDDropTargetDelegate> delegate = [self.controller delegateForDropTarget:self.currentDragOperation.dropTargetView];
-    if ([delegate respondsToSelector:@selector(dragOperation:shouldPositionDragViewInDropTarget:)]) {
-        return [delegate dragOperation:self.currentDragOperation shouldPositionDragViewInDropTarget:self.currentDragOperation.dropTargetView];
-    } else {
-        return YES;
-    }
-}
-
 - (void)notifyDropInTarget:(UIView *)dropTarget {
     [[self.controller delegateForDropTarget:dropTarget] dragOperation:self.currentDragOperation didDropInDropTarget:dropTarget];
 }
@@ -182,6 +176,15 @@
 - (void)notifyDragCancel {
     if ([self.dragDelegate respondsToSelector:@selector(dragOperationWillCancel:)]) {
         [self.dragDelegate dragOperationWillCancel:self.currentDragOperation];
+    }
+}
+
+- (BOOL)shouldPositionInDropTarget:(UIView *)dropTarget {
+    id<DNDDropTargetDelegate> delegate = [self.controller delegateForDropTarget:dropTarget];
+    if ([delegate respondsToSelector:@selector(dragOperation:shouldPositionDragViewInDropTarget:)]) {
+        return [delegate dragOperation:self.currentDragOperation shouldPositionDragViewInDropTarget:dropTarget];
+    } else {
+        return YES;
     }
 }
 

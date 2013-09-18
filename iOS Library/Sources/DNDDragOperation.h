@@ -16,7 +16,7 @@
 @property (nonatomic, readonly) UIView *dragSourceView;        // The drag source where this operation originated from
 @property (nonatomic, readonly) UIView *draggingView;          // The currently dragged view
 @property (nonatomic, readonly) UIView *dropTargetView;        // The current drop target (nil if not over a dorp target)
-@property (nonatomic, readonly) NSMutableDictionary *userInfo; // Place to store any additional information about the drag operation
+@property (nonatomic, readonly) NSMutableDictionary *userInfo; // Place to store any additional information
 
 /**
  * The current location of the drag operation relative to the given view.

@@ -10,9 +10,13 @@
 #import "DNDDragAndDropController_Private.h"
 
 
-@implementation DNDDragOperation {
-    BOOL _canceled;
-}
+@interface DNDDragOperation ()
+
+@property (nonatomic, assign) BOOL canceled;
+
+@end
+
+@implementation DNDDragOperation
 
 #pragma mark - Initialization
 
@@ -29,6 +33,7 @@
 #pragma mark - Getting Information
 
 - (CGPoint)locationInView:(UIView *)view {
+    Require(view != nil);
     return [self convertPoint:self.dragLocation toView:view];
 }
 
@@ -36,7 +41,7 @@
 #pragma mark - Cancel Dragging
 
 - (BOOL)isDraggingViewRemoved {
-    return _canceled;
+    return self.canceled;
 }
 
 - (void)removeDraggingView {
@@ -52,7 +57,7 @@
 }
 
 - (void)beginRemovingDraggingView {
-    _canceled = YES;
+    self.canceled = YES;
     [self.dragHandler cancelDragging];
 }
 

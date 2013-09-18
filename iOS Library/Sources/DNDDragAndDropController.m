@@ -10,11 +10,15 @@
 #import "DNDDragHandler.h"
 
 
-@implementation DNDDragAndDropController {
-    UIWindow *_window;
-    NSMapTable *_dragSources;
-    NSMapTable *_dropTargets;
-}
+@interface DNDDragAndDropController ()
+
+@property (nonatomic, readonly) UIWindow *window;
+@property (nonatomic, readonly) NSMapTable *dragSources;
+@property (nonatomic, readonly) NSMapTable *dropTargets;
+
+@end
+
+@implementation DNDDragAndDropController
 
 #pragma mark - Initialization
 
@@ -35,13 +39,13 @@
 #pragma mark - Getting Views
 
 - (UIView *)dragPaneView {
-    return _window.rootViewController.view;
+    return self.window.rootViewController.view;
 }
 
 - (UIView *)dropTargetAtLocation:(CGPoint)location {
     UIView *candidate = [self.dragPaneView hitTest:location withEvent:nil];
     while (candidate != nil && candidate != self.dragPaneView) {
-        if ([_dropTargets objectForKey:candidate] != nil) {
+        if ([self.dropTargets objectForKey:candidate] != nil) {
             return candidate;
         }
         candidate = candidate.superview;
@@ -50,38 +54,37 @@
 }
 
 - (id<DNDDropTargetDelegate>)delegateForDropTarget:(UIView *)target {
-    return (target != nil ? [_dropTargets objectForKey:target] : nil);
+    return (target != nil ? [self.dropTargets objectForKey:target] : nil);
 }
 
 
 #pragma mark - Registering Sources and Targets
 
 - (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate {
-    NSParameterAssert(source != nil);
-    NSParameterAssert(source.userInteractionEnabled);
-    NSParameterAssert(delegate != nil);
+    Require(source != nil);
+    Require(delegate != nil);
     
-    [_dragSources setObject:[[DNDDragHandler alloc] initWithController:self sourceView:source delegate:delegate] forKey:source];
+    DNDDragHandler *handler = [[DNDDragHandler alloc] initWithController:self sourceView:source delegate:delegate];
+    [self.dragSources setObject:handler forKey:source];
 }
 
 - (void)unregisterDragSource:(UIView *)source {
-    NSParameterAssert(source != nil);
-    
-    [_dragSources removeObjectForKey:source];
+    if (source != nil) {
+        [self.dragSources removeObjectForKey:source];
+    }
 }
 
 - (void)registerDropTarget:(UIView *)target withDelegate:(id<DNDDropTargetDelegate>)delegate {
-    NSParameterAssert(target != nil);
-    NSParameterAssert(target.userInteractionEnabled);
-    NSParameterAssert(delegate != nil);
+    Require(target != nil);
+    Require(delegate != nil);
     
-    [_dropTargets setObject:delegate forKey:target];
+    [self.dropTargets setObject:delegate forKey:target];
 }
 
 - (void)unregisterDropTarget:(UIView *)target {
-    NSParameterAssert(target != nil);
-    
-    [_dropTargets removeObjectForKey:target];
+    if (target != nil) {
+        [self.dropTargets removeObjectForKey:target];
+    }
 }
 
 @end

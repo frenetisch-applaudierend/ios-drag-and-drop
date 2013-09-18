@@ -71,8 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				5FECCB9A16DE5F92007ED32F /* Foundation.framework */,
-				5FECCBA916DE5F92007ED32F /* SenTestingKit.framework */,
 				5FDE39C716E10C9F00E8A872 /* UIKit.framework */,
+				5FECCBA916DE5F92007ED32F /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
