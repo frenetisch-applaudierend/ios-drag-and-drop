@@ -43,7 +43,7 @@
  * You can optionally perfom the removal animated. For even more control over the removal use
  * -beginRemovingDraggingView and -completeRemovingDraggingView.
  */
-- (void)removeDraggingViewAnimatedWithDuration:(NSTimeInterval)duration animations:(void(^)())animations;
+- (void)removeDraggingViewAnimatedWithDuration:(NSTimeInterval)duration animations:(void(^)(UIView *draggingView))animations;
 - (void)removeDraggingView;
 
 

@@ -49,11 +49,17 @@
     [self completeRemovingDraggingView];
 }
 
-- (void)removeDraggingViewAnimatedWithDuration:(NSTimeInterval)duration animations:(void(^)())animations {
+- (void)removeDraggingViewAnimatedWithDuration:(NSTimeInterval)duration animations:(void(^)(UIView *))animations {
     [self beginRemovingDraggingView];
-    [UIView animateWithDuration:duration animations:animations completion:^(BOOL finished) {
-        [self completeRemovingDraggingView];
-    }];
+    [UIView animateWithDuration:duration
+                     animations:^{
+                         if (animations != nil) {
+                             animations(self.draggingView);
+                         }
+                     }
+                     completion:^(BOOL finished) {
+                         [self completeRemovingDraggingView];
+                     }];
 }
 
 - (void)beginRemovingDraggingView {

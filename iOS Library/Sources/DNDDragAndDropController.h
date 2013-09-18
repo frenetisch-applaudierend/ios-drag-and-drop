@@ -97,6 +97,11 @@
  *
  * @param operation The drag operation needing the drag view.
  * @return A view to be dragged on the screen, or nil to cancel the operation.
+ *
+ * @discussion If you return the drag source itself (e.g. operation.dragSourceView), be aware that it
+ *             is removed from its superview while being dragged around. After its dropped (on a target
+ *             or elsewhere) it's by default removed for good. So if you still need it after dragging,
+ *             you need to make sure the view is added to another superview.
  */
 - (UIView *)draggingViewForDragOperation:(DNDDragOperation *)operation;
 
