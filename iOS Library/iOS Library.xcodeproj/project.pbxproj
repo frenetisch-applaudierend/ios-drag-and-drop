@@ -236,7 +236,7 @@
 				GCC_PREFIX_HEADER = Sources/Prefix.pch;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = dragndrop;
-				PUBLIC_HEADERS_FOLDER_PATH = include/DragAndDrop;
+				PUBLIC_HEADERS_FOLDER_PATH = include/DNDDragAndDrop;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -249,7 +249,7 @@
 				GCC_PREFIX_HEADER = Sources/Prefix.pch;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = dragndrop;
-				PUBLIC_HEADERS_FOLDER_PATH = include/DragAndDrop;
+				PUBLIC_HEADERS_FOLDER_PATH = include/DNDDragAndDrop;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

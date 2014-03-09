@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <DragAndDrop/DragAndDrop.h>
+#import <DNDDragAndDrop/DNDDragAndDrop.h>
 
 
 @interface DNDBlindSpotSampleViewController : UIViewController
