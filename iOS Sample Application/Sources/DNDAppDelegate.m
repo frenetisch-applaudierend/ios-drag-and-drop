@@ -11,6 +11,7 @@
 #import "DNDDropSampleViewController.h"
 #import "DNDBlindSpotSampleViewController.h"
 #import "DNDStackViewSampleViewController.h"
+#import "DNDTableViewSampleViewController.h"
 
 
 @implementation DNDAppDelegate
@@ -25,7 +26,8 @@
         [[DNDDragSampleViewController alloc] init],
         [[DNDDropSampleViewController alloc] init],
         [[DNDBlindSpotSampleViewController alloc] init],
-        [[DNDStackViewSampleViewController alloc] init]
+        [[DNDStackViewSampleViewController alloc] init],
+        [[DNDTableViewSampleViewController alloc] init],
     ];
     self.window.rootViewController = tabBarController;
     

@@ -27,6 +27,8 @@
 		5F8C971816E645040070ADB8 /* DNDStackViewSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C971616E645040070ADB8 /* DNDStackViewSampleViewController.m */; };
 		5F8C971916E645040070ADB8 /* DNDStackViewSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F8C971716E645040070ADB8 /* DNDStackViewSampleViewController.xib */; };
 		5F8C971C16E64A010070ADB8 /* DNDStackSampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C971B16E64A010070ADB8 /* DNDStackSampleView.m */; };
+		631B18C718CCA23400AC4273 /* DNDTableViewSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631B18C518CCA23400AC4273 /* DNDTableViewSampleViewController.m */; };
+		631B18C818CCA23400AC4273 /* DNDTableViewSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631B18C618CCA23400AC4273 /* DNDTableViewSampleViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,9 @@
 		5F8C971716E645040070ADB8 /* DNDStackViewSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DNDStackViewSampleViewController.xib; sourceTree = "<group>"; };
 		5F8C971A16E64A010070ADB8 /* DNDStackSampleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDStackSampleView.h; sourceTree = "<group>"; };
 		5F8C971B16E64A010070ADB8 /* DNDStackSampleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDStackSampleView.m; sourceTree = "<group>"; };
+		631B18C418CCA23400AC4273 /* DNDTableViewSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDTableViewSampleViewController.h; sourceTree = "<group>"; };
+		631B18C518CCA23400AC4273 /* DNDTableViewSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDTableViewSampleViewController.m; sourceTree = "<group>"; };
+		631B18C618CCA23400AC4273 /* DNDTableViewSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DNDTableViewSampleViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +165,7 @@
 				5F8970B416E37B62007DBAF1 /* Drag And Drop */,
 				5F8970B816E3D9E3007DBAF1 /* Blind Spot */,
 				5F8E61AF16E525ED00748C49 /* Stack Views */,
+				631B18C318CCA1D500AC4273 /* Table Views */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -186,6 +192,16 @@
 				5F8C971B16E64A010070ADB8 /* DNDStackSampleView.m */,
 			);
 			name = "Stack Views";
+			sourceTree = "<group>";
+		};
+		631B18C318CCA1D500AC4273 /* Table Views */ = {
+			isa = PBXGroup;
+			children = (
+				631B18C418CCA23400AC4273 /* DNDTableViewSampleViewController.h */,
+				631B18C518CCA23400AC4273 /* DNDTableViewSampleViewController.m */,
+				631B18C618CCA23400AC4273 /* DNDTableViewSampleViewController.xib */,
+			);
+			name = "Table Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				631B18C818CCA23400AC4273 /* DNDTableViewSampleViewController.xib in Resources */,
 				5F8B449416E12E6500293EAC /* Default.png in Resources */,
 				5F8B449616E12E6500293EAC /* Default@2x.png in Resources */,
 				5F8B449816E12E6500293EAC /* Default-568h@2x.png in Resources */,
@@ -257,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				631B18C718CCA23400AC4273 /* DNDTableViewSampleViewController.m in Sources */,
 				5F8B448E16E12E6500293EAC /* main.m in Sources */,
 				5F8B449216E12E6500293EAC /* DNDAppDelegate.m in Sources */,
 				5F8C868616E12FA600F6161B /* DNDDragSampleViewController.m in Sources */,

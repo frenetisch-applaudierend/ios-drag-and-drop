@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DNDSampleDragView : UIView
+
+@interface DNDSampleDragView : UILabel
 
 @end

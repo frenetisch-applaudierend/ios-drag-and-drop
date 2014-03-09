@@ -19,6 +19,8 @@
         self.layer.borderColor = [[UIColor whiteColor] CGColor];
         self.layer.borderWidth = 2.0f;
         self.layer.cornerRadius = 5.0f;
+        self.textAlignment = NSTextAlignmentCenter;
+        self.textColor = [UIColor whiteColor];
     }
     return self;
 }
