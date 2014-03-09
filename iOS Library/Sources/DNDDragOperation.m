@@ -3,7 +3,7 @@
 //  ios-drag-and-drop
 //
 //  Created by Markus Gasser on 3/1/13.
-//  Copyright (c) 2013 Team RG. All rights reserved.
+//  Copyright (c) 2013 konoma GmbH. All rights reserved.
 //
 
 #import "DNDDragOperation_Private.h"

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447016E11C0B00293EAC /* DNDDragHandler.m */; };
 		5F8B447416E129D200293EAC /* DNDDragOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447316E129D200293EAC /* DNDDragOperation.m */; };
-		5F8C868816E1308100F6161B /* DragAndDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C316E1085600E8A872 /* DragAndDrop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F8C868816E1308100F6161B /* DNDDragAndDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C316E1085600E8A872 /* DNDDragAndDrop.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F8C868A16E1308A00F6161B /* DNDDragOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B447216E129D200293EAC /* DNDDragOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F8C868B16E1308A00F6161B /* DNDDragHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */; settings = {ATTRIBUTES = (); }; };
@@ -27,7 +27,7 @@
 		5F8B447316E129D200293EAC /* DNDDragOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragOperation.m; sourceTree = "<group>"; };
 		5F8C868E16E1348F00F6161B /* DNDDragOperation_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragOperation_Private.h; sourceTree = "<group>"; };
 		5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNDDragAndDropController_Private.h; sourceTree = "<group>"; };
-		5FDE39C316E1085600E8A872 /* DragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragAndDrop.h; sourceTree = "<group>"; };
+		5FDE39C316E1085600E8A872 /* DNDDragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragAndDrop.h; sourceTree = "<group>"; };
 		5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragAndDropController.h; sourceTree = "<group>"; };
 		5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragAndDropController.m; sourceTree = "<group>"; };
 		5FDE39C716E10C9F00E8A872 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				5FECCB9E16DE5F92007ED32F /* Prefix.pch */,
-				5FDE39C316E1085600E8A872 /* DragAndDrop.h */,
+				5FDE39C316E1085600E8A872 /* DNDDragAndDrop.h */,
 				5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */,
 				5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */,
 				5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */,
@@ -101,7 +101,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8C868816E1308100F6161B /* DragAndDrop.h in Headers */,
+				5F8C868816E1308100F6161B /* DNDDragAndDrop.h in Headers */,
 				5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */,
 				5F8C868A16E1308A00F6161B /* DNDDragOperation.h in Headers */,
 				5F8C868B16E1308A00F6161B /* DNDDragHandler.h in Headers */,
@@ -136,8 +136,9 @@
 		5FECCB8F16DE5F92007ED32F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DND;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "Team RG";
+				ORGANIZATIONNAME = "konoma GmbH";
 			};
 			buildConfigurationList = 5FECCB9216DE5F92007ED32F /* Build configuration list for PBXProject "iOS Library" */;
 			compatibilityVersion = "Xcode 3.2";

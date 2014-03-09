@@ -216,7 +216,7 @@
 			attributes = {
 				CLASSPREFIX = DND;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "Team RG";
+				ORGANIZATIONNAME = "konoma GmbH";
 			};
 			buildConfigurationList = 5F8B447916E12E6500293EAC /* Build configuration list for PBXProject "iOS Sample Application" */;
 			compatibilityVersion = "Xcode 3.2";
