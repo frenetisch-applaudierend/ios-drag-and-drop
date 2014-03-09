@@ -41,12 +41,15 @@
 /**
  * Register a view to be used as source for a dragging operation.
  *
- * This will add a gesture recognizer on the source view. Therefore user interaction
+ * This will add the specified or a default gesture recognizer on the source view. Therefore user interaction
  * must be enabled on the source view for dragging to work.
  *
- * @param source   The view where a dragging operation can be started. Cannot be nil.
- * @param delegate The delegate object controlling the dragging part of the operation. Cannot be nil.
+ * @param source     The view where a dragging operation can be started. Cannot be nil.
+ * @param delegate   The delegate object controlling the dragging part of the operation. Cannot be nil.
+ * @param recognizer The gesture recognizer handling the drag operation. If nil or omitted
+                            a UIPanGestureRecognizer is used.
  */
+- (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate dragRecognizer:(UIGestureRecognizer *)recognizer;
 - (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate;
 
 /**

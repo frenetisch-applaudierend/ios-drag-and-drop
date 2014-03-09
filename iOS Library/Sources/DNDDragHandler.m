@@ -13,7 +13,6 @@
 
 @interface DNDDragHandler ()
 
-@property (nonatomic, strong) UIPanGestureRecognizer *dragRecognizer;
 @property (nonatomic, strong) DNDDragOperation *currentDragOperation;
 @property (nonatomic, assign) BOOL isCancelled;
 
@@ -26,19 +25,22 @@
 
 - (instancetype)initWithController:(DNDDragAndDropController *)controller
                         sourceView:(UIView *)source
+                    dragRecognizer:(UIGestureRecognizer *)dragRecognizer
                           delegate:(id<DNDDragSourceDelegate>)delegate
 {
     NSParameterAssert(controller != nil);
     NSParameterAssert(source != nil);
+    NSParameterAssert(dragRecognizer != nil);
     NSParameterAssert(delegate != nil);
     
     if ((self = [super init])) {
         _controller = controller;
         _dragSourceView = source;
         _dragDelegate = delegate;
-        _dragRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleDragGesture:)];
-        _dragRecognizer.maximumNumberOfTouches = 1;
+        _dragRecognizer = dragRecognizer;
         [_dragSourceView addGestureRecognizer:_dragRecognizer];
+        
+        [dragRecognizer addTarget:self action:@selector(handleDragGesture:)];
     }
     return self;
 }

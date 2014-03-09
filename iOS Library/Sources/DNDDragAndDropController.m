@@ -60,12 +60,22 @@
 
 #pragma mark - Registering Sources and Targets
 
-- (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate {
+- (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate dragRecognizer:(UIGestureRecognizer *)recognizer {
     NSParameterAssert(source != nil);
     NSParameterAssert(delegate != nil);
     
-    DNDDragHandler *handler = [[DNDDragHandler alloc] initWithController:self sourceView:source delegate:delegate];
+    if (recognizer == nil) {
+        UIPanGestureRecognizer *defaultRecognizer = [[UIPanGestureRecognizer alloc] init];
+        defaultRecognizer.maximumNumberOfTouches = 1;
+        recognizer = defaultRecognizer;
+    }
+    
+    DNDDragHandler *handler = [[DNDDragHandler alloc] initWithController:self sourceView:source dragRecognizer:recognizer delegate:delegate];
     [self.dragSources setObject:handler forKey:source];
+}
+
+- (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate {
+    [self registerDragSource:source withDelegate:delegate dragRecognizer:nil];
 }
 
 - (void)unregisterDragSource:(UIView *)source {
