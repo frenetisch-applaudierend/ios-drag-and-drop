@@ -61,8 +61,8 @@
 #pragma mark - Registering Sources and Targets
 
 - (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate {
-    Require(source != nil);
-    Require(delegate != nil);
+    NSParameterAssert(source != nil);
+    NSParameterAssert(delegate != nil);
     
     DNDDragHandler *handler = [[DNDDragHandler alloc] initWithController:self sourceView:source delegate:delegate];
     [self.dragSources setObject:handler forKey:source];
@@ -75,8 +75,8 @@
 }
 
 - (void)registerDropTarget:(UIView *)target withDelegate:(id<DNDDropTargetDelegate>)delegate {
-    Require(target != nil);
-    Require(delegate != nil);
+    NSParameterAssert(target != nil);
+    NSParameterAssert(delegate != nil);
     
     [self.dropTargets setObject:delegate forKey:target];
 }

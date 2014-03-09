@@ -33,7 +33,7 @@
 #pragma mark - Getting Information
 
 - (CGPoint)locationInView:(UIView *)view {
-    Require(view != nil);
+    NSParameterAssert(view != nil);
     return [self convertPoint:self.dragLocation toView:view];
 }
 
