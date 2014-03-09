@@ -13,6 +13,7 @@
 @interface DNDLongPressDragRecognizer ()
 
 @property (nonatomic, weak) NSTimer *longPressTimer;
+@property (nonatomic, strong) UITouch *trackedTouch;
 
 @end
 
@@ -30,44 +31,57 @@
 #pragma mark - Handling Touches
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSAssert(self.state == UIGestureRecognizerStatePossible, @"Should be in another state");
-    
-    if ([touches count] > 1) {
-        [self reset];
+    if (touches.count > 1 || self.trackedTouch != nil) {
         return;
     }
     
+    self.trackedTouch = [touches anyObject];
     self.longPressTimer = [NSTimer scheduledTimerWithTimeInterval:self.minimumPressDuration
-                                                           target:self selector:@selector(didLongPress:)
+                                                           target:self selector:@selector(checkLongPress:)
                                                          userInfo:nil repeats:NO];
 }
 
-- (void)didLongPress:(NSTimer *)timer {
-    self.state = UIGestureRecognizerStateBegan;
+- (void)checkLongPress:(NSTimer *)timer {
+    if (self.trackedTouch != nil && self.trackedTouch.phase == UITouchPhaseStationary) {
+        self.state = UIGestureRecognizerStateBegan;
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
         self.state = UIGestureRecognizerStateChanged;
     } else {
-        [self.longPressTimer invalidate];
-        self.state = UIGestureRecognizerStateFailed;
+        [self failRecognition];
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
         self.state = UIGestureRecognizerStateEnded;
+        self.trackedTouch = nil;
     } else {
-        [self.longPressTimer invalidate];
-        self.state = UIGestureRecognizerStateFailed;
+        [self failRecognition];
     }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.longPressTimer invalidate];
-    self.state = UIGestureRecognizerStateCancelled;
+    [self failRecognition];
 }
 
+
+#pragma mark - Getting Information
+
+- (CGPoint)locationInView:(UIView *)view {
+    return [self.trackedTouch locationInView:view];
+}
+
+
+#pragma mark - Helpers
+
+- (void)failRecognition {
+    [self.longPressTimer invalidate];
+    self.trackedTouch = nil;
+    self.state = UIGestureRecognizerStateFailed;
+}
 
 @end
