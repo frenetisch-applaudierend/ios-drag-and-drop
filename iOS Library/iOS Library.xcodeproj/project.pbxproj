@@ -18,6 +18,8 @@
 		5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */; };
 		5FDE39C816E10C9F00E8A872 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDE39C716E10C9F00E8A872 /* UIKit.framework */; };
 		5FECCB9B16DE5F92007ED32F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FECCB9A16DE5F92007ED32F /* Foundation.framework */; };
+		631B18CD18CCB15200AC4273 /* DNDLongPressDragRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 631B18CB18CCB15200AC4273 /* DNDLongPressDragRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		631B18CE18CCB15200AC4273 /* DNDLongPressDragRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 631B18CC18CCB15200AC4273 /* DNDLongPressDragRecognizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		5FECCB9A16DE5F92007ED32F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5FECCB9E16DE5F92007ED32F /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		5FECCBA916DE5F92007ED32F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		631B18CB18CCB15200AC4273 /* DNDLongPressDragRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDLongPressDragRecognizer.h; sourceTree = "<group>"; };
+		631B18CC18CCB15200AC4273 /* DNDLongPressDragRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDLongPressDragRecognizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				5F8B447316E129D200293EAC /* DNDDragOperation.m */,
 				5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */,
 				5F8B447016E11C0B00293EAC /* DNDDragHandler.m */,
+				631B18CB18CCB15200AC4273 /* DNDLongPressDragRecognizer.h */,
+				631B18CC18CCB15200AC4273 /* DNDLongPressDragRecognizer.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -103,6 +109,7 @@
 			files = (
 				5F8C868816E1308100F6161B /* DNDDragAndDrop.h in Headers */,
 				5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */,
+				631B18CD18CCB15200AC4273 /* DNDLongPressDragRecognizer.h in Headers */,
 				5F8C868A16E1308A00F6161B /* DNDDragOperation.h in Headers */,
 				5F8C868B16E1308A00F6161B /* DNDDragHandler.h in Headers */,
 				5F8C868F16E1348F00F6161B /* DNDDragOperation_Private.h in Headers */,
@@ -162,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				631B18CE18CCB15200AC4273 /* DNDLongPressDragRecognizer.m in Sources */,
 				5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */,
 				5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */,
 				5F8B447416E129D200293EAC /* DNDDragOperation.m in Sources */,
