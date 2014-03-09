@@ -1,6 +1,15 @@
 # iOS Drag and Drop Library
 
-`libdragndrop` is a library that helps you support drag and drop operations in your iOS applications. This software is licensed under a MIT license (see the LICENSE file for more info).
+This is a library that helps you support drag and drop operations in your iOS applications. This software is licensed under a MIT license (see the LICENSE file for more info).
+
+
+## Installation
+
+To install it using CococaPods add the following to your `Podfile`:
+
+    pod 'DNDDragAndDrop', '~> 1.0.0'
+
+Thanks to Hok Shun Poon for providing the podspec.
 
 
 ## Usage
