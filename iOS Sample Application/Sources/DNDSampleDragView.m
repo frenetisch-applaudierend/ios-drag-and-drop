@@ -21,6 +21,8 @@
         self.layer.cornerRadius = 5.0f;
         self.textAlignment = NSTextAlignmentCenter;
         self.textColor = [UIColor whiteColor];
+        self.userInteractionEnabled = YES;
+        self.clipsToBounds = YES;
     }
     return self;
 }

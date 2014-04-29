@@ -1,3 +1,4 @@
 .DS_Store
 /DragAndDrop.xcworkspace/xcuserdata
 /iOS Library/iOS Library.xcodeproj/xcuserdata
+*.xccheckout
