@@ -7,7 +7,7 @@ This is a library that helps you support drag and drop operations in your iOS ap
 
 To install it using CococaPods add the following to your `Podfile`:
 
-    pod 'DNDDragAndDrop', '~> 1.0.0'
+    pod 'DNDDragAndDrop', '~> 1.1.0'
 
 Thanks to Hok Shun Poon for providing the podspec.
 
@@ -27,6 +27,12 @@ When registering you need to provide a delegate for both. The `DNDDragSourceDele
     self.dragAndDropController = [[DNDDragAndDropController alloc] init];
     [self.dragAndDropController registerDragSource:mySourceView withDelegate:self];
     [self.dragAndDropController registerDropTarget:myDropTarget withDelegate:self];
+
+If necessary you can provide your own gesture recognizer for dragging. The passed recognizer must be a continuous gesture recognizer (like a `UIPanGestureRecognizer`).
+
+    [self.dragAndDropController registerDragSource:mySourceView withDelegate:self dragRecognizer:myRecognizer];
+
+By default a `UIPanGestureRecognizer` is used.
 
 
 ### Dragging
@@ -90,7 +96,7 @@ To remove a drag view (either in `-dragOperation:didDropInDropTarget:` or in `-d
 
 If you don't do anything until the method returns, then by default for both methods the operations `-removeDraggingView` is called which removes the drag view without any animations.
 
-If you'd like more control over the proces you can use `-removeDraggingViewAnimatedWithDuration:animations:` which allows you to pass an animation block.
+If you'd like to animate the removal you can use `-removeDraggingViewAnimatedWithDuration:animations:` which allows you to pass an animation block.
 
 Third, for most control you can use the `-beginRemovingDraggingView`/`-completeRemovingDraggingView` method pair. Once you called `-beginRemovingDraggingView` the dragging view is considered "being removed" and you can return from the method without a default action happening. Then at any point you can remove the dragging view by calling `-completeRemovingDraggingView`. This can be useful if you need to chain animations for example.
 

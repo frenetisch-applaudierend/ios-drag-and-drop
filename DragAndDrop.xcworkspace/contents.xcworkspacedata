@@ -7,4 +7,13 @@
    <FileRef
       location = "group:iOS Sample Application/iOS Sample Application.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:DNDDragAndDrop.podspec">
+   </FileRef>
+   <FileRef
+      location = "group:Readme.md">
+   </FileRef>
+   <FileRef
+      location = "group:LICENSE">
+   </FileRef>
 </Workspace>
