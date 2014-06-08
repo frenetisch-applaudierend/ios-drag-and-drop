@@ -10,7 +10,7 @@
 #import "DNDSampleDragView.h"
 
 
-@interface DNDTableViewSampleViewController () <UITableViewDataSource, DNDDragSourceDelegate, DNDDropTargetDelegate>
+@interface DNDTableViewSampleViewController () <UITableViewDataSource, DNDDragSourceDelegate, DNDDropTargetDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, readonly) NSMutableArray *leftItems;
 @property (nonatomic, readonly) NSMutableArray *rightItems;
@@ -39,12 +39,19 @@
     [super viewDidLoad];
     
     [self.leftTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ItemCell"];
-    [self.dragAndDropController registerDragSource:self.leftTableView withDelegate:self dragRecognizer:[[DNDLongPressDragRecognizer alloc] init]];
-    [self.dragAndDropController registerDropTarget:self.leftTableView withDelegate:self];
+    [self registerTableViewForDragging:self.leftTableView];
     
     [self.rightTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ItemCell"];
-    [self.dragAndDropController registerDragSource:self.rightTableView withDelegate:self dragRecognizer:[[DNDLongPressDragRecognizer alloc] init]];
-    [self.dragAndDropController registerDropTarget:self.rightTableView withDelegate:self];
+    [self registerTableViewForDragging:self.rightTableView];
+}
+
+- (void)registerTableViewForDragging:(UITableView *)tableView {
+    DNDLongPressDragRecognizer *dragRecognizer = [[DNDLongPressDragRecognizer alloc] init];
+    dragRecognizer.minimumPressDuration = 0.05;
+    [tableView.panGestureRecognizer requireGestureRecognizerToFail:dragRecognizer]; // prevent UITableView from hijacking Touches
+    
+    [self.dragAndDropController registerDragSource:tableView withDelegate:self dragRecognizer:dragRecognizer];
+    [self.dragAndDropController registerDropTarget:tableView withDelegate:self];
 }
 
 
