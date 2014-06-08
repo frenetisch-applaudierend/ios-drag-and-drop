@@ -17,9 +17,9 @@
 /**
  The main drag and drop controller object.
  
- Ususally you will have one of those object for each drag and drop context.
+ Ususally you will have one of those objects for each drag and drop context.
  Each controller maintains its own drag sources and drop targets. This means
- can only drag and drop within the same controller. Registering a drag source
+ you can only drag and drop within the same controller. Registering a drag source
  in one controller and a drop target in another controller won't work.
  */
 @interface DNDDragAndDropController : NSObject
