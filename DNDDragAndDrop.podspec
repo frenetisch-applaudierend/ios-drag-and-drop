@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   
   s.name         = "DNDDragAndDrop"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "A library that helps you support drag and drop operations in your iOS applications."
   
   s.description  = <<-DESC
@@ -38,7 +38,7 @@ DESC
   
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   
-  s.source       = { :git => "https://github.com/frenetisch-applaudierend/ios-drag-and-drop.git", :tag => "1.1.0" }
+  s.source       = { :git => "https://github.com/frenetisch-applaudierend/ios-drag-and-drop.git", :tag => "1.1.1" }
   
   
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
