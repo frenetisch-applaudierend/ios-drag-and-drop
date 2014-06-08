@@ -45,6 +45,8 @@ DESC
   
   s.source_files  = 'iOS Library/Sources/**/*.{h,m}'
   s.public_header_files = 'iOS Library/Sources/**/*.h'
+  s.private_header_files = 'iOS Library/Sources/**/*_Private.h', 'iOS Library/Sources/DNDDragHandler.h'
+  
   
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   
