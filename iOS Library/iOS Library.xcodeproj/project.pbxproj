@@ -36,7 +36,6 @@
 		5FECCB9716DE5F92007ED32F /* libdragndrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdragndrop.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FECCB9A16DE5F92007ED32F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5FECCB9E16DE5F92007ED32F /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		5FECCBA916DE5F92007ED32F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		631B18CB18CCB15200AC4273 /* DNDLongPressDragRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDLongPressDragRecognizer.h; sourceTree = "<group>"; };
 		631B18CC18CCB15200AC4273 /* DNDLongPressDragRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDLongPressDragRecognizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +75,6 @@
 			children = (
 				5FECCB9A16DE5F92007ED32F /* Foundation.framework */,
 				5FDE39C716E10C9F00E8A872 /* UIKit.framework */,
-				5FECCBA916DE5F92007ED32F /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

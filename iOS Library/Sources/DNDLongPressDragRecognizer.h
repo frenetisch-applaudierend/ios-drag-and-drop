@@ -9,10 +9,21 @@
 #import <UIKit/UIKit.h>
 
 
+/**
+ A gesture recognizer combining a long press and a pan gesture.
+ 
+ To begin the gesture, the user must long press for a given duration. Then moving the finger updates
+ the gesture recognizer until the user lifts the finger again.
+ 
+ This gesture recognizer is useful when working with `UITableView` or `UICollectionView` as the drag source,
+ as it allows the user to pan without the gesture being recognized as a drag.
+ */
 @interface DNDLongPressDragRecognizer : UIGestureRecognizer
 
-/** How long the user must long press before the drag gesture starts.
- *  Defaults to 0.5 seconds.
+/**
+ How long the user must long press before the drag gesture starts.
+ 
+ Default is 0.5 seconds.
  */
 @property (nonatomic, assign) NSTimeInterval minimumPressDuration;
 
