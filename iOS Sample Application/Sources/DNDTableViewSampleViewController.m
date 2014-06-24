@@ -47,7 +47,7 @@
 
 - (void)registerTableViewForDragging:(UITableView *)tableView {
     DNDLongPressDragRecognizer *dragRecognizer = [[DNDLongPressDragRecognizer alloc] init];
-    dragRecognizer.minimumPressDuration = 0.05;
+    dragRecognizer.minimumPressDuration = 0.1;
     [tableView.panGestureRecognizer requireGestureRecognizerToFail:dragRecognizer]; // prevent UITableView from hijacking Touches
     
     [self.dragAndDropController registerDragSource:tableView withDelegate:self dragRecognizer:dragRecognizer];
