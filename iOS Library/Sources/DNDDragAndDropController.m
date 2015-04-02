@@ -32,7 +32,7 @@
 }
 
 - (instancetype)init {
-    return [self initWithWindow:[[UIApplication sharedApplication] keyWindow]];
+    return [self initWithWindow:[[[UIApplication sharedApplication] delegate] window]];
 }
 
 

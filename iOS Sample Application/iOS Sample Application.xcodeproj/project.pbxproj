@@ -362,6 +362,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "DnD Sample";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -374,6 +375,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "DnD Sample";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
