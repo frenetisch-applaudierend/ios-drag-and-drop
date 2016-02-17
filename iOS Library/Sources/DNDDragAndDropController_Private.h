@@ -10,11 +10,17 @@
 #import "DNDDragAndDropController.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
+
 @interface DNDDragAndDropController ()
 
 @property (nonatomic, readonly) UIView *dragPaneView;
 
-- (UIView *)dropTargetAtLocation:(CGPoint)location;
-- (id<DNDDropTargetDelegate>)delegateForDropTarget:(UIView *)target;
+- (nullable UIView *)dropTargetAtLocation:(CGPoint)location;
+- (nullable id<DNDDropTargetDelegate>)delegateForDropTarget:(nullable UIView *)target;
 
 @end
+
+
+NS_ASSUME_NONNULL_END

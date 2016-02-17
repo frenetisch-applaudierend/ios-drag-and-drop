@@ -14,6 +14,9 @@
 @class DNDDragOperation;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
+
 /**
  The main drag and drop controller object.
  
@@ -53,7 +56,7 @@
  @param delegate   The delegate object controlling the dragging part of the operation. Cannot be `nil`.
  @param recognizer The gesture recognizer handling the drag operation. If nil, a `UIPanGestureRecognizer` is used.
  */
-- (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate dragRecognizer:(UIGestureRecognizer *)recognizer;
+- (void)registerDragSource:(UIView *)source withDelegate:(id<DNDDragSourceDelegate>)delegate dragRecognizer:(nullable UIGestureRecognizer *)recognizer;
 
 /**
  Register a view to be used as source for a dragging operation with the default drag recognizer.
@@ -68,7 +71,7 @@
 /**
  Remove a registered drag source.
  
- If the passed view is `nil` or not registered, this method does nothing.
+ If the passed view is not registered, this method does nothing.
  */
 - (void)unregisterDragSource:(UIView *)source;
 
@@ -86,7 +89,7 @@
 /**
  Remove a registered drop target.
  
- If the passed view is `nil` or not registered, this method does nothing.
+ If the passed view is not registered, this method does nothing.
  */
 - (void)unregisterDropTarget:(UIView *)target;
 
@@ -117,7 +120,7 @@
              After its dropped (on a target or elsewhere) it won't be added back to the original superview. So if you still
              need the source view after dragging, you need to make sure the view is added to another superview after dropping.
  */
-- (UIView *)draggingViewForDragOperation:(DNDDragOperation *)operation;
+- (nullable UIView *)draggingViewForDragOperation:(DNDDragOperation *)operation;
 
 @optional
 
@@ -192,3 +195,6 @@
 - (BOOL)dragOperation:(DNDDragOperation *)operation shouldPositionDragViewInDropTarget:(UIView *)target;
 
 @end
+
+
+NS_ASSUME_NONNULL_END

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  A gesture recognizer combining a long press and a pan gesture.
  
@@ -28,3 +30,6 @@
 @property (nonatomic, assign) NSTimeInterval minimumPressDuration;
 
 @end
+
+
+NS_ASSUME_NONNULL_END

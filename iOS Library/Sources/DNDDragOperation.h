@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
+
 /**
  Object used to control a drag and drop operation.
  */
@@ -23,7 +26,7 @@
 @property (nonatomic, readonly) UIView *draggingView;
 
 /// The current drop target (`nil` if not over a dorp target)
-@property (nonatomic, readonly) UIView *dropTargetView;
+@property (nonatomic, readonly, nullable) UIView *dropTargetView;
 
 /// Place to store any additional information
 @property (nonatomic, readonly) NSMutableDictionary *userInfo;
@@ -93,9 +96,12 @@
 /**
  Convert points and rects to and from the drag pane view (the dragging views superview).
  */
-- (CGPoint)convertPoint:(CGPoint)point toView:(UIView *)view;
-- (CGPoint)convertPoint:(CGPoint)point fromView:(UIView *)view;
-- (CGRect)convertRect:(CGRect)rect toView:(UIView *)view;
-- (CGRect)convertRect:(CGRect)rect fromView:(UIView *)view;
+- (CGPoint)convertPoint:(CGPoint)point toView:(nullable UIView *)view;
+- (CGPoint)convertPoint:(CGPoint)point fromView:(nullable UIView *)view;
+- (CGRect)convertRect:(CGRect)rect toView:(nullable UIView *)view;
+- (CGRect)convertRect:(CGRect)rect fromView:(nullable UIView *)view;
 
 @end
+
+
+NS_ASSUME_NONNULL_END
