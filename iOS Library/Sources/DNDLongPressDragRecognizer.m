@@ -8,6 +8,7 @@
 
 #import "DNDLongPressDragRecognizer.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
+#import "UITouch+DNDTouchLocationUpdates.h"
 
 
 @interface DNDLongPressDragRecognizer ()
@@ -50,7 +51,7 @@
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
         self.state = UIGestureRecognizerStateChanged;
-    } else {
+    } else if ([self.trackedTouch locationChanged]) {
         [self failRecognition];
     }
 }
