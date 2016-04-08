@@ -48,7 +48,7 @@
 - (void)registerTableViewForDragging:(UITableView *)tableView {
     DNDLongPressDragRecognizer *dragRecognizer = [[DNDLongPressDragRecognizer alloc] init];
     dragRecognizer.minimumPressDuration = 0.1;
-    [tableView.panGestureRecognizer requireGestureRecognizerToFail:dragRecognizer]; // prevent UITableView from hijacking Touches
+    [tableView.panGestureRecognizer requireGestureRecognizerToFail:dragRecognizer]; // prevent UITableView from hijacking touches
     
     [self.dragAndDropController registerDragSource:tableView withDelegate:self dragRecognizer:dragRecognizer];
     [self.dragAndDropController registerDropTarget:tableView withDelegate:self];
@@ -60,7 +60,6 @@
 - (NSMutableArray *)itemsForTableView:(UITableView *)tableView {
     return (tableView == self.leftTableView ? self.leftItems : self.rightItems);
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[self itemsForTableView:tableView] count];
@@ -111,7 +110,6 @@
     DNDSampleDragView *dragView = (DNDSampleDragView *)operation.draggingView;
     UITableView *tableView = (UITableView *)operation.dropTargetView;
     NSMutableArray *items = [self itemsForTableView:tableView];
-    
     
     NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:[operation locationInView:tableView]];
     if (indexPath == nil) {
