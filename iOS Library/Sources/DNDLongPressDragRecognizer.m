@@ -51,7 +51,7 @@
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
         self.state = UIGestureRecognizerStateChanged;
-    } else if ([self.trackedTouch locationChanged]) {
+    } else if ([self.trackedTouch dnd_locationChanged]) {
         [self failRecognition];
     }
 }

@@ -10,6 +10,6 @@
 
 @interface UITouch (DNDTouchLocationUpdates)
 
-- (BOOL)locationChanged;
+- (BOOL)dnd_locationChanged;
 
 @end

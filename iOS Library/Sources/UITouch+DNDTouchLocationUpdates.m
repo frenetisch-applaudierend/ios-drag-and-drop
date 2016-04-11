@@ -10,7 +10,7 @@
 
 @implementation UITouch (DNDTouchLocationUpdates)
 
-- (BOOL)locationChanged {
+- (BOOL)dnd_locationChanged {
     UIView *view = self.view;
     CGPoint location = [self locationInView:view];
     CGPoint previousLocation = [self previousLocationInView:view];
