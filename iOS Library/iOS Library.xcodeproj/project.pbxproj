@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09579ADD1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.h in Headers */ = {isa = PBXBuildFile; fileRef = 09579ADB1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.h */; };
+		09579ADE1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 09579ADC1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.m */; };
 		5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447016E11C0B00293EAC /* DNDDragHandler.m */; };
 		5F8B447416E129D200293EAC /* DNDDragOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447316E129D200293EAC /* DNDDragOperation.m */; };
 		5F8C868816E1308100F6161B /* DNDDragAndDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C316E1085600E8A872 /* DNDDragAndDrop.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09579ADB1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITouch+DNDTouchLocationUpdates.h"; sourceTree = "<group>"; };
+		09579ADC1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITouch+DNDTouchLocationUpdates.m"; sourceTree = "<group>"; };
 		5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragHandler.h; sourceTree = "<group>"; };
 		5F8B447016E11C0B00293EAC /* DNDDragHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragHandler.m; sourceTree = "<group>"; };
 		5F8B447216E129D200293EAC /* DNDDragOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragOperation.h; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				5F8B447016E11C0B00293EAC /* DNDDragHandler.m */,
 				631B18CB18CCB15200AC4273 /* DNDLongPressDragRecognizer.h */,
 				631B18CC18CCB15200AC4273 /* DNDLongPressDragRecognizer.m */,
+				09579ADB1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.h */,
+				09579ADC1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -106,6 +112,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F8C868816E1308100F6161B /* DNDDragAndDrop.h in Headers */,
+				09579ADD1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.h in Headers */,
 				5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */,
 				631B18CD18CCB15200AC4273 /* DNDLongPressDragRecognizer.h in Headers */,
 				5F8C868A16E1308A00F6161B /* DNDDragOperation.h in Headers */,
@@ -168,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				631B18CE18CCB15200AC4273 /* DNDLongPressDragRecognizer.m in Sources */,
+				09579ADE1CB7D98300EB4944 /* UITouch+DNDTouchLocationUpdates.m in Sources */,
 				5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */,
 				5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */,
 				5F8B447416E129D200293EAC /* DNDDragOperation.m in Sources */,
