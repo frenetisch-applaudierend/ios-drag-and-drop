@@ -54,8 +54,7 @@
     if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
         self.state = UIGestureRecognizerStateChanged;
     } else if (self.state == UIGestureRecognizerStatePossible) {
-        UITouch *currentTouch = [touches anyObject];
-        CGPoint currentPoint = [currentTouch locationInView:self.view];
+        CGPoint currentPoint = [self.trackedTouch locationInView:self.view];
         CGPoint vector = CGPointMake(currentPoint.x - self.startPoint.x, currentPoint.y - self.startPoint.y);
         CGFloat distance = hypot(vector.x, vector.y);
         
