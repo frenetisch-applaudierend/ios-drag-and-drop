@@ -14,9 +14,10 @@
 
 @property (nonatomic, weak) NSTimer *longPressTimer;
 @property (nonatomic, strong) UITouch *trackedTouch;
-@property (nonatomic) CGPoint   startPoint;
+@property (nonatomic, assign) CGPoint startPoint;
 
 @end
+
 
 @implementation DNDLongPressDragRecognizer
 
@@ -25,10 +26,11 @@
 - (instancetype)initWithTarget:(id)target action:(SEL)action {
     if ((self = [super initWithTarget:target action:action])) {
         _minimumPressDuration = 0.5;
-        _allowableMovement = 10.0;
+        _allowableMovement = 10.0f;
     }
     return self;
 }
+
 
 #pragma mark - Handling Touches
 

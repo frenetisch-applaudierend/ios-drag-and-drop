@@ -22,15 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface DNDLongPressDragRecognizer : UIGestureRecognizer
 
-/**
- How long the user must long press before the drag gesture starts.
- 
- Default is 0.5 seconds.
- */
+/// How long the user must long press before the drag gesture starts. Default is 0.5 seconds.
 @property (nonatomic, assign) NSTimeInterval minimumPressDuration;
 
+/// How far the user is allowed to "wiggle" their finger while long pressing. Default is 10pt.
 @property (nonatomic, assign) CGFloat allowableMovement;
-
 
 @end
 
