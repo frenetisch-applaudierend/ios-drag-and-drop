@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) NSTimeInterval minimumPressDuration;
 
+@property (nonatomic, assign) CGFloat allowableMovement;
+
+
 @end
 
 

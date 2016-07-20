@@ -8,13 +8,13 @@
 
 #import "DNDLongPressDragRecognizer.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
-#import "UITouch+DNDTouchLocationUpdates.h"
 
 
 @interface DNDLongPressDragRecognizer ()
 
 @property (nonatomic, weak) NSTimer *longPressTimer;
 @property (nonatomic, strong) UITouch *trackedTouch;
+@property (nonatomic) CGPoint   startPoint;
 
 @end
 
@@ -25,6 +25,7 @@
 - (instancetype)initWithTarget:(id)target action:(SEL)action {
     if ((self = [super initWithTarget:target action:action])) {
         _minimumPressDuration = 0.5;
+        _allowableMovement = 10.0;
     }
     return self;
 }
@@ -40,6 +41,7 @@
     self.longPressTimer = [NSTimer scheduledTimerWithTimeInterval:self.minimumPressDuration
                                                            target:self selector:@selector(checkLongPress:)
                                                          userInfo:nil repeats:NO];
+    self.startPoint = [self.trackedTouch locationInView:self.view];
 }
 
 - (void)checkLongPress:(NSTimer *)timer {
@@ -51,7 +53,14 @@
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
         self.state = UIGestureRecognizerStateChanged;
-    } else if ([self.trackedTouch dnd_locationChanged]) {
+    } else if (self.state == UIGestureRecognizerStatePossible) {
+        CGPoint currentPoint = [self.trackedTouch locationInView:self.view];
+        CGPoint vector = CGPointMake(currentPoint.x - self.startPoint.x, currentPoint.y - self.startPoint.y);
+        CGFloat distance = hypot(vector.x, vector.y);
+        
+        if (distance > self.allowableMovement)
+            [self failRecognition];
+    } else {
         [self failRecognition];
     }
 }
