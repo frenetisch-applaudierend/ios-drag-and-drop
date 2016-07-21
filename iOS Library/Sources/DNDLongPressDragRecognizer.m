@@ -58,10 +58,11 @@
     } else if (self.state == UIGestureRecognizerStatePossible) {
         CGPoint currentPoint = [self.trackedTouch locationInView:self.view];
         CGPoint vector = CGPointMake(currentPoint.x - self.startPoint.x, currentPoint.y - self.startPoint.y);
-        CGFloat distance = hypot(vector.x, vector.y);
+        CGFloat distance = (CGFloat)hypot(vector.x, vector.y);
         
-        if (distance > self.allowableMovement)
+        if (distance > self.allowableMovement) {
             [self failRecognition];
+        }
     } else {
         [self failRecognition];
     }
