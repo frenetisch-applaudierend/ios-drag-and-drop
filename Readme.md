@@ -7,7 +7,7 @@ This is a library that helps you support drag and drop operations in your iOS ap
 
 To install it using CococaPods add the following to your `Podfile`:
 
-    pod 'DNDDragAndDrop', '~> 1.1.0'
+    pod 'DNDDragAndDrop', '~> 1.2'
 
 Thanks to Hok Shun Poon for providing the podspec.
 
