@@ -33,7 +33,7 @@ DESC
   
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  s.ios.deployment_target = '6.1'
+  s.ios.deployment_target = '8.0'
   
   
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
