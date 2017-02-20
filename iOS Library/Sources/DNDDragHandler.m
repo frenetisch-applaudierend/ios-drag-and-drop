@@ -172,7 +172,18 @@
 }
 
 - (void)notifyDropInTarget:(UIView *)dropTarget {
-    [[self.controller delegateForDropTarget:dropTarget] dragOperation:self.currentDragOperation didDropInDropTarget:dropTarget];
+    id<DNDDropTargetDelegate> delegate = [self.controller delegateForDropTarget:self.currentDragOperation.dropTargetView];
+
+    BOOL canDrop = YES;
+    if ([delegate respondsToSelector:@selector(dragOperation:canDropInDropTarget:)]) {
+        canDrop = [delegate dragOperation:self.currentDragOperation canDropInDropTarget:dropTarget];
+    }
+
+    if (canDrop) {
+        [[self.controller delegateForDropTarget:dropTarget] dragOperation:self.currentDragOperation didDropInDropTarget:dropTarget];
+    } else {
+        [self notifyDragCancel];
+    }
 }
 
 - (void)notifyDragCancel {
