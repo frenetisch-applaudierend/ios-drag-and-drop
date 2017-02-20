@@ -40,11 +40,7 @@
 #pragma mark - Getting Views
 
 - (UIView *)dragPaneView {
-    UIViewController *frontViewController = self.window.rootViewController;
-    while (frontViewController.presentedViewController != nil) {
-        frontViewController = frontViewController.presentedViewController;
-    }
-    return frontViewController.view;
+    return self.window;
 }
 
 - (UIView *)dropTargetAtLocation:(CGPoint)location {
