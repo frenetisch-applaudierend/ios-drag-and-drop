@@ -165,6 +165,18 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 /**
+ Optional allow or dissallow dropping into target view.
+
+ If this method is not implemented in delegate it's assumed that view can be dropped.
+ If this method returns NO, then -dragOperationWillCancel: will be called instead of
+ -dragOperation:didDropInDropTarget:.
+ 
+ @param operation The current drag operation
+ @param target    The drop target view where the drop was made
+ */
+- (BOOL)dragOperation:(DNDDragOperation *)operation canDropInDropTarget:(UIView *)target;
+
+/**
  Optional notification when the user enters a drop target during a drag operation.
  
  @param operation The current drag operation
