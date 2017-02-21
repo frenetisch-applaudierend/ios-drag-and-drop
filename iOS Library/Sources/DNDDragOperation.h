@@ -93,12 +93,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Conversion Helpers
 
+
 /**
- Convert points and rects to and from the drag pane view (the dragging views superview).
+ Convert the given point from the drag pane view to the given view.
+ 
+ @param point The point to convert
+ @param view  The view to convert to
+ @return The given point in the context of the given view
  */
 - (CGPoint)convertPoint:(CGPoint)point toView:(nullable UIView *)view;
+
+/**
+ Convert the given point from the given view to the drag pane view.
+ */
 - (CGPoint)convertPoint:(CGPoint)point fromView:(nullable UIView *)view;
+
+/**
+ Convert the given rect from the drag pane view to the given view.
+ */
 - (CGRect)convertRect:(CGRect)rect toView:(nullable UIView *)view;
+
+/**
+ Convert the given rect from the given view to the drag pane view.
+ */
 - (CGRect)convertRect:(CGRect)rect fromView:(nullable UIView *)view;
 
 @end

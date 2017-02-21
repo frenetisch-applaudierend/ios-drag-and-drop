@@ -13,6 +13,7 @@
 @interface DNDBlindSpotSampleViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIView *dragSourceView;
+@property (nonatomic, weak) IBOutlet UIView *dropTargetView;
 @property (nonatomic, weak) IBOutlet UIView *blindSpotView;
 @property (nonatomic, strong) IBOutlet DNDDragAndDropController *dragAndDropController;
 

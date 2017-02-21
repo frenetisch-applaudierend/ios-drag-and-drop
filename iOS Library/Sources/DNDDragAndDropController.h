@@ -162,14 +162,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target;
 
+
 @optional
 
 /**
  Optional allow or dissallow dropping into target view.
 
- If this method is not implemented in delegate it's assumed that view can be dropped.
- If this method returns NO, then -dragOperationWillCancel: will be called instead of
- -dragOperation:didDropInDropTarget:.
+ This method is called when the user drops a view over a drop target, before `-dragOperation:didDropInDropTarget:`
+ is called.
+ 
+ If `YES` is returned by the delegate, then `-dragOperation:didDropInDropTarget:` is called normally. If `NO`
+ is returned by the delegate, then the drag operation will be cancelled and `-dragOperationWillCancel:` is
+ called instead. If the delegate does not implement this method, then a return value of `YES` is assumed.
  
  @param operation The current drag operation
  @param target    The drop target view where the drop was made
@@ -192,19 +196,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)dragOperation:(DNDDragOperation *)operation didLeaveDropTarget:(UIView *)target;
 
-/**
- Optionally allow or disallow moving within certain parts of a drop target.
- 
- Using this method you can disallow positioning the dragging view above a certain part of your
- drop target. If the method is not implemented, by default any position is allowed.
- 
- You can get the current position of the drag view using `-[DNDDragOperation locationInView:]`.
- 
- @param operation The current drag operation
- @param target    The drop target view being moved in
- @return `YES` if you want to allow the drag view being placed at the current position or `NO` otherwise.
- */
-- (BOOL)dragOperation:(DNDDragOperation *)operation shouldPositionDragViewInDropTarget:(UIView *)target;
+/// Deprecated, use `-dragOperation:canDropInDropTarget:` instead
+- (BOOL)dragOperation:(DNDDragOperation *)operation shouldPositionDragViewInDropTarget:(UIView *)target DEPRECATED_ATTRIBUTE;
 
 @end
 

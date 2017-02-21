@@ -195,7 +195,10 @@
 - (BOOL)shouldPositionInDropTarget:(UIView *)dropTarget {
     id<DNDDropTargetDelegate> delegate = [self.controller delegateForDropTarget:dropTarget];
     if ([delegate respondsToSelector:@selector(dragOperation:shouldPositionDragViewInDropTarget:)]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         return [delegate dragOperation:self.currentDragOperation shouldPositionDragViewInDropTarget:dropTarget];
+#pragma clang diagnostic pop
     } else {
         return YES;
     }

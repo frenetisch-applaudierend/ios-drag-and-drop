@@ -32,7 +32,10 @@
     [super viewDidLoad];
     
     [self.dragAndDropController registerDragSource:self.dragSourceView withDelegate:self];
-    [self.dragAndDropController registerDropTarget:self.blindSpotView withDelegate:self];
+    [self.dragAndDropController registerDropTarget:self.dropTargetView withDelegate:self];
+
+    self.blindSpotView.layer.borderColor = UIColor.whiteColor.CGColor;
+    self.blindSpotView.layer.borderWidth = 4.0f;
 }
 
 
@@ -58,11 +61,18 @@
 #pragma mark - Drop Target Delegate
 
 - (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target {
-    [self dragOperationWillCancel:operation];
+    target.backgroundColor = operation.draggingView.backgroundColor;
+    target.layer.borderColor = [[UIColor whiteColor] CGColor];
 }
 
-- (BOOL)dragOperation:(DNDDragOperation *)operation shouldPositionDragViewInDropTarget:(UIView *)target {
-    return NO;
+- (BOOL)dragOperation:(DNDDragOperation *)operation canDropInDropTarget:(UIView *)target {
+    CGPoint location = [operation locationInView:target];
+    if (CGRectContainsPoint(self.blindSpotView.frame, location)) {
+        // can't drop in the blind spot view
+        return NO;
+    }
+
+    return YES;
 }
 
 @end
