@@ -38,7 +38,6 @@
     if (touches.count > 1 || self.trackedTouch != nil) {
         return;
     }
-    
     self.trackedTouch = [touches anyObject];
     self.longPressTimer = [NSTimer scheduledTimerWithTimeInterval:self.minimumPressDuration
                                                            target:self selector:@selector(checkLongPress:)
@@ -53,34 +52,39 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
-        self.state = UIGestureRecognizerStateChanged;
-    } else if (self.state == UIGestureRecognizerStatePossible) {
-        CGPoint currentPoint = [self.trackedTouch locationInView:self.view];
-        CGPoint vector = CGPointMake(currentPoint.x - self.startPoint.x, currentPoint.y - self.startPoint.y);
-        CGFloat distance = (CGFloat)hypot(vector.x, vector.y);
-        
-        if (distance > self.allowableMovement) {
+    if ([touches containsObject:self.trackedTouch]) {
+        if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
+            self.state = UIGestureRecognizerStateChanged;
+        } else if (self.state == UIGestureRecognizerStatePossible) {
+            CGPoint currentPoint = [self.trackedTouch locationInView:self.view];
+            CGPoint vector = CGPointMake(currentPoint.x - self.startPoint.x, currentPoint.y - self.startPoint.y);
+            CGFloat distance = (CGFloat)hypot(vector.x, vector.y);
+            
+            if (distance > self.allowableMovement) {
+                [self failRecognition];
+            }
+        } else {
             [self failRecognition];
         }
-    } else {
-        [self failRecognition];
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
-        self.state = UIGestureRecognizerStateEnded;
-        self.trackedTouch = nil;
-    } else {
-        [self failRecognition];
+    if ([touches containsObject:self.trackedTouch]) {
+        if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
+            self.state = UIGestureRecognizerStateEnded;
+            self.trackedTouch = nil;
+        } else {
+            [self failRecognition];
+        }
     }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self failRecognition];
+    if ([touches containsObject:self.trackedTouch]) {
+        [self failRecognition];
+    }
 }
-
 
 #pragma mark - Getting Information
 
@@ -88,6 +92,9 @@
     return [self.trackedTouch locationInView:view];
 }
 
+- (BOOL)isDragging {
+    return self.trackedTouch != nil;
+}
 
 #pragma mark - Helpers
 
