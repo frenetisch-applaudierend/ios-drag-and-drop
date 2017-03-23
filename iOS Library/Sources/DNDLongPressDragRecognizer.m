@@ -38,6 +38,8 @@
     if (touches.count > 1 || self.trackedTouch != nil) {
         return;
     }
+
+    [self reset];
     self.trackedTouch = [touches anyObject];
     self.longPressTimer = [NSTimer scheduledTimerWithTimeInterval:self.minimumPressDuration
                                                            target:self selector:@selector(checkLongPress:)
@@ -61,10 +63,10 @@
             CGFloat distance = (CGFloat)hypot(vector.x, vector.y);
             
             if (distance > self.allowableMovement) {
-                [self failRecognition];
+                self.state = UIGestureRecognizerStateFailed;
             }
         } else {
-            [self failRecognition];
+            self.state = UIGestureRecognizerStateFailed;
         }
     }
 }
@@ -73,16 +75,15 @@
     if ([touches containsObject:self.trackedTouch]) {
         if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
             self.state = UIGestureRecognizerStateEnded;
-            self.trackedTouch = nil;
         } else {
-            [self failRecognition];
+            self.state = UIGestureRecognizerStateFailed;
         }
     }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([touches containsObject:self.trackedTouch]) {
-        [self failRecognition];
+        self.state = UIGestureRecognizerStateCancelled;
     }
 }
 
@@ -98,10 +99,9 @@
 
 #pragma mark - Helpers
 
-- (void)failRecognition {
+- (void)reset {
     [self.longPressTimer invalidate];
     self.trackedTouch = nil;
-    self.state = UIGestureRecognizerStateFailed;
 }
 
 @end
