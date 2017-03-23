@@ -54,37 +54,43 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    if ([touches containsObject:self.trackedTouch]) {
-        if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
-            self.state = UIGestureRecognizerStateChanged;
-        } else if (self.state == UIGestureRecognizerStatePossible) {
-            CGPoint currentPoint = [self.trackedTouch locationInView:self.view];
-            CGPoint vector = CGPointMake(currentPoint.x - self.startPoint.x, currentPoint.y - self.startPoint.y);
-            CGFloat distance = (CGFloat)hypot(vector.x, vector.y);
-            
-            if (distance > self.allowableMovement) {
-                self.state = UIGestureRecognizerStateFailed;
-            }
-        } else {
+    if (![touches containsObject:self.trackedTouch]) {
+        return;
+    }
+
+    if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
+        self.state = UIGestureRecognizerStateChanged;
+    } else if (self.state == UIGestureRecognizerStatePossible) {
+        CGPoint currentPoint = [self.trackedTouch locationInView:self.view];
+        CGPoint vector = CGPointMake(currentPoint.x - self.startPoint.x, currentPoint.y - self.startPoint.y);
+        CGFloat distance = (CGFloat)hypot(vector.x, vector.y);
+
+        if (distance > self.allowableMovement) {
             self.state = UIGestureRecognizerStateFailed;
         }
+    } else {
+        self.state = UIGestureRecognizerStateFailed;
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if ([touches containsObject:self.trackedTouch]) {
-        if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
-            self.state = UIGestureRecognizerStateEnded;
-        } else {
-            self.state = UIGestureRecognizerStateFailed;
-        }
+    if (![touches containsObject:self.trackedTouch]) {
+        return;
+    }
+
+    if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
+        self.state = UIGestureRecognizerStateEnded;
+    } else {
+        self.state = UIGestureRecognizerStateFailed;
     }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    if ([touches containsObject:self.trackedTouch]) {
-        self.state = UIGestureRecognizerStateCancelled;
+    if (![touches containsObject:self.trackedTouch]) {
+        return;
     }
+
+    self.state = UIGestureRecognizerStateCancelled;
 }
 
 #pragma mark - Getting Information
