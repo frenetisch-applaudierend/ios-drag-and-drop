@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  After registering you can drop a dragged view onto the registered target.
  User interaction must be enabled on the target view for dropping to work.
  
- @param source   The view where a dragged view can be dropped onto. Cannot be `nil`.
+ @param target   The view where a dragged view can be dropped onto. Cannot be `nil`.
  @param delegate The delegate object controlling the dropping part of the operation. Cannot be `nil`.
  */
 - (void)registerDropTarget:(UIView *)target withDelegate:(id<DNDDropTargetDelegate>)delegate;
