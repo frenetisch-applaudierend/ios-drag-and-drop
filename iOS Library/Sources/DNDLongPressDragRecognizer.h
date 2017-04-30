@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 /**
  A gesture recognizer combining a long press and a pan gesture.
  
@@ -27,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// How far the user is allowed to "wiggle" their finger while long pressing. Default is 10pt.
 @property (nonatomic, assign) CGFloat allowableMovement;
+
+/// Is drag gesture in progress
+@property (nonatomic, readonly, getter=isDragging) BOOL dragging;
 
 @end
 
