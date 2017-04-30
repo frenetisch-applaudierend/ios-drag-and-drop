@@ -38,7 +38,8 @@
     if (touches.count > 1 || self.trackedTouch != nil) {
         return;
     }
-    
+
+    [self reset];
     self.trackedTouch = [touches anyObject];
     self.longPressTimer = [NSTimer scheduledTimerWithTimeInterval:self.minimumPressDuration
                                                            target:self selector:@selector(checkLongPress:)
@@ -53,34 +54,44 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (![touches containsObject:self.trackedTouch]) {
+        return;
+    }
+
     if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
         self.state = UIGestureRecognizerStateChanged;
     } else if (self.state == UIGestureRecognizerStatePossible) {
         CGPoint currentPoint = [self.trackedTouch locationInView:self.view];
         CGPoint vector = CGPointMake(currentPoint.x - self.startPoint.x, currentPoint.y - self.startPoint.y);
         CGFloat distance = (CGFloat)hypot(vector.x, vector.y);
-        
+
         if (distance > self.allowableMovement) {
-            [self failRecognition];
+            self.state = UIGestureRecognizerStateFailed;
         }
     } else {
-        [self failRecognition];
+        self.state = UIGestureRecognizerStateFailed;
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (![touches containsObject:self.trackedTouch]) {
+        return;
+    }
+
     if (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged) {
         self.state = UIGestureRecognizerStateEnded;
-        self.trackedTouch = nil;
     } else {
-        [self failRecognition];
+        self.state = UIGestureRecognizerStateFailed;
     }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self failRecognition];
-}
+    if (![touches containsObject:self.trackedTouch]) {
+        return;
+    }
 
+    self.state = UIGestureRecognizerStateCancelled;
+}
 
 #pragma mark - Getting Information
 
@@ -88,13 +99,15 @@
     return [self.trackedTouch locationInView:view];
 }
 
+- (BOOL)isDragging {
+    return self.trackedTouch != nil;
+}
 
 #pragma mark - Helpers
 
-- (void)failRecognition {
+- (void)reset {
     [self.longPressTimer invalidate];
     self.trackedTouch = nil;
-    self.state = UIGestureRecognizerStateFailed;
 }
 
 @end
