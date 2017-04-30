@@ -93,6 +93,7 @@
     self.state = UIGestureRecognizerStateCancelled;
 }
 
+
 #pragma mark - Getting Information
 
 - (CGPoint)locationInView:(UIView *)view {
@@ -102,6 +103,7 @@
 - (BOOL)isDragging {
     return self.trackedTouch != nil;
 }
+
 
 #pragma mark - Helpers
 

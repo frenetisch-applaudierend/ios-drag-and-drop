@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 /**
  A gesture recognizer combining a long press and a pan gesture.
  
@@ -29,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat allowableMovement;
 
 /// Is drag gesture in progress
-@property (nonatomic, assign) BOOL isDragging;
+@property (nonatomic, readonly, getter=isDragging) BOOL dragging;
 
 @end
 
