@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447016E11C0B00293EAC /* DNDDragHandler.m */; };
-		5F8B447416E129D200293EAC /* DNDDragOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447316E129D200293EAC /* DNDDragOperation.m */; };
-		5F8C868816E1308100F6161B /* DNDDragAndDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C316E1085600E8A872 /* DNDDragAndDrop.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F8C868A16E1308A00F6161B /* DNDDragOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B447216E129D200293EAC /* DNDDragOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F8C868B16E1308A00F6161B /* DNDDragHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */; settings = {ATTRIBUTES = (); }; };
-		5F8C868F16E1348F00F6161B /* DNDDragOperation_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C868E16E1348F00F6161B /* DNDDragOperation_Private.h */; };
-		5F8C869116E137CD00F6161B /* DNDDragAndDropController_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */; };
-		5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */; };
-		5FDE39C816E10C9F00E8A872 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDE39C716E10C9F00E8A872 /* UIKit.framework */; };
-		5FECCB9B16DE5F92007ED32F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FECCB9A16DE5F92007ED32F /* Foundation.framework */; };
-		631B18CD18CCB15200AC4273 /* DNDLongPressDragRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 631B18CB18CCB15200AC4273 /* DNDLongPressDragRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		631B18CE18CCB15200AC4273 /* DNDLongPressDragRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 631B18CC18CCB15200AC4273 /* DNDLongPressDragRecognizer.m */; };
+		0596D9981EC331810036BB2C /* DNDDragAndDropController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */; };
+		0596D9991EC331810036BB2C /* DNDDragOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447316E129D200293EAC /* DNDDragOperation.m */; };
+		0596D99A1EC331810036BB2C /* DNDDragHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B447016E11C0B00293EAC /* DNDDragHandler.m */; };
+		0596D99B1EC331810036BB2C /* DNDLongPressDragRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 631B18CC18CCB15200AC4273 /* DNDLongPressDragRecognizer.m */; };
+		0596D99C1EC3318D0036BB2C /* DNDDragAndDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C316E1085600E8A872 /* DNDDragAndDrop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0596D99D1EC3318D0036BB2C /* DNDDragAndDropController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0596D99E1EC3318D0036BB2C /* DNDDragOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B447216E129D200293EAC /* DNDDragOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0596D99F1EC3318D0036BB2C /* DNDLongPressDragRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 631B18CB18CCB15200AC4273 /* DNDLongPressDragRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0596D9A01EC3319A0036BB2C /* DNDDragAndDropController_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C869016E137CA00F6161B /* DNDDragAndDropController_Private.h */; };
+		0596D9A11EC3319A0036BB2C /* DNDDragOperation_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8C868E16E1348F00F6161B /* DNDDragOperation_Private.h */; };
+		0596D9A21EC3319A0036BB2C /* DNDDragHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0596D98F1EC3303D0036BB2C /* DNDDragAndDrop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DNDDragAndDrop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0596D9921EC3303D0036BB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F8B446F16E11C0B00293EAC /* DNDDragHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragHandler.h; sourceTree = "<group>"; };
 		5F8B447016E11C0B00293EAC /* DNDDragHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragHandler.m; sourceTree = "<group>"; };
 		5F8B447216E129D200293EAC /* DNDDragOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragOperation.h; sourceTree = "<group>"; };
@@ -33,7 +33,6 @@
 		5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragAndDropController.h; sourceTree = "<group>"; };
 		5FDE39C516E1087600E8A872 /* DNDDragAndDropController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragAndDropController.m; sourceTree = "<group>"; };
 		5FDE39C716E10C9F00E8A872 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		5FECCB9716DE5F92007ED32F /* libdragndrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdragndrop.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FECCB9A16DE5F92007ED32F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5FECCB9E16DE5F92007ED32F /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		631B18CB18CCB15200AC4273 /* DNDLongPressDragRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDLongPressDragRecognizer.h; sourceTree = "<group>"; };
@@ -41,12 +40,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5FECCB9416DE5F92007ED32F /* Frameworks */ = {
+		0596D98B1EC3303D0036BB2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FECCB9B16DE5F92007ED32F /* Foundation.framework in Frameworks */,
-				5FDE39C816E10C9F00E8A872 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +62,7 @@
 		5FECCB9816DE5F92007ED32F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5FECCB9716DE5F92007ED32F /* libdragndrop.a */,
+				0596D98F1EC3303D0036BB2C /* DNDDragAndDrop.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,6 +79,7 @@
 		5FECCB9C16DE5F92007ED32F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0596D9921EC3303D0036BB2C /* Info.plist */,
 				5FECCB9E16DE5F92007ED32F /* Prefix.pch */,
 				5FDE39C316E1085600E8A872 /* DNDDragAndDrop.h */,
 				5FDE39C416E1087600E8A872 /* DNDDragAndDropController.h */,
@@ -101,39 +99,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5F8C868716E1307C00F6161B /* Headers */ = {
+		0596D98C1EC3303D0036BB2C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8C868816E1308100F6161B /* DNDDragAndDrop.h in Headers */,
-				5F8C868916E1308A00F6161B /* DNDDragAndDropController.h in Headers */,
-				631B18CD18CCB15200AC4273 /* DNDLongPressDragRecognizer.h in Headers */,
-				5F8C868A16E1308A00F6161B /* DNDDragOperation.h in Headers */,
-				5F8C868B16E1308A00F6161B /* DNDDragHandler.h in Headers */,
-				5F8C868F16E1348F00F6161B /* DNDDragOperation_Private.h in Headers */,
-				5F8C869116E137CD00F6161B /* DNDDragAndDropController_Private.h in Headers */,
+				0596D99C1EC3318D0036BB2C /* DNDDragAndDrop.h in Headers */,
+				0596D99D1EC3318D0036BB2C /* DNDDragAndDropController.h in Headers */,
+				0596D99E1EC3318D0036BB2C /* DNDDragOperation.h in Headers */,
+				0596D99F1EC3318D0036BB2C /* DNDLongPressDragRecognizer.h in Headers */,
+				0596D9A01EC3319A0036BB2C /* DNDDragAndDropController_Private.h in Headers */,
+				0596D9A11EC3319A0036BB2C /* DNDDragOperation_Private.h in Headers */,
+				0596D9A21EC3319A0036BB2C /* DNDDragHandler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5FECCB9616DE5F92007ED32F /* iOS Library */ = {
+		0596D98E1EC3303D0036BB2C /* Framework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FECCBBC16DE5F92007ED32F /* Build configuration list for PBXNativeTarget "iOS Library" */;
+			buildConfigurationList = 0596D9961EC3303D0036BB2C /* Build configuration list for PBXNativeTarget "Framework" */;
 			buildPhases = (
-				5FECCB9316DE5F92007ED32F /* Sources */,
-				5FECCB9416DE5F92007ED32F /* Frameworks */,
-				5F8C868716E1307C00F6161B /* Headers */,
+				0596D98A1EC3303D0036BB2C /* Sources */,
+				0596D98B1EC3303D0036BB2C /* Frameworks */,
+				0596D98C1EC3303D0036BB2C /* Headers */,
+				0596D98D1EC3303D0036BB2C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "iOS Library";
-			productName = "iOS Library";
-			productReference = 5FECCB9716DE5F92007ED32F /* libdragndrop.a */;
-			productType = "com.apple.product-type.library.static";
+			name = Framework;
+			productName = "drag-and-drop";
+			productReference = 0596D98F1EC3303D0036BB2C /* DNDDragAndDrop.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -144,6 +143,12 @@
 				CLASSPREFIX = DND;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "konoma GmbH";
+				TargetAttributes = {
+					0596D98E1EC3303D0036BB2C = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 5FECCB9216DE5F92007ED32F /* Build configuration list for PBXProject "iOS Library" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -157,26 +162,107 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5FECCB9616DE5F92007ED32F /* iOS Library */,
+				0596D98E1EC3303D0036BB2C /* Framework */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		0596D98D1EC3303D0036BB2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		5FECCB9316DE5F92007ED32F /* Sources */ = {
+		0596D98A1EC3303D0036BB2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				631B18CE18CCB15200AC4273 /* DNDLongPressDragRecognizer.m in Sources */,
-				5FDE39C616E1087600E8A872 /* DNDDragAndDropController.m in Sources */,
-				5F8B447116E11C0B00293EAC /* DNDDragHandler.m in Sources */,
-				5F8B447416E129D200293EAC /* DNDDragOperation.m in Sources */,
+				0596D9981EC331810036BB2C /* DNDDragAndDropController.m in Sources */,
+				0596D9991EC331810036BB2C /* DNDDragOperation.m in Sources */,
+				0596D99A1EC331810036BB2C /* DNDDragHandler.m in Sources */,
+				0596D99B1EC331810036BB2C /* DNDLongPressDragRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		0596D9941EC3303D0036BB2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.konoma.DNDDragAndDrop;
+				PRODUCT_NAME = DNDDragAndDrop;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0596D9951EC3303D0036BB2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.konoma.DNDDragAndDrop;
+				PRODUCT_NAME = DNDDragAndDrop;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		5FECCBBA16DE5F92007ED32F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -251,49 +337,22 @@
 			};
 			name = Release;
 		};
-		5FECCBBD16DE5F92007ED32F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/iOS_Library.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sources/Prefix.pch;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = dragndrop;
-				PUBLIC_HEADERS_FOLDER_PATH = include/DNDDragAndDrop;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		5FECCBBE16DE5F92007ED32F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/iOS_Library.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sources/Prefix.pch;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = dragndrop;
-				PUBLIC_HEADERS_FOLDER_PATH = include/DNDDragAndDrop;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0596D9961EC3303D0036BB2C /* Build configuration list for PBXNativeTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0596D9941EC3303D0036BB2C /* Debug */,
+				0596D9951EC3303D0036BB2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		5FECCB9216DE5F92007ED32F /* Build configuration list for PBXProject "iOS Library" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5FECCBBA16DE5F92007ED32F /* Debug */,
 				5FECCBBB16DE5F92007ED32F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5FECCBBC16DE5F92007ED32F /* Build configuration list for PBXNativeTarget "iOS Library" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5FECCBBD16DE5F92007ED32F /* Debug */,
-				5FECCBBE16DE5F92007ED32F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
