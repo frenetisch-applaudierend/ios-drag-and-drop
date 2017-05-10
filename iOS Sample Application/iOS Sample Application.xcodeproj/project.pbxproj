@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0596D9A61EC336F50036BB2C /* DNDDragAndDrop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596D9A51EC336F50036BB2C /* DNDDragAndDrop.framework */; };
 		5F8970A516E14753007DBAF1 /* DNDDropSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8970A416E14753007DBAF1 /* DNDDropSampleViewController.m */; };
 		5F8970A716E37744007DBAF1 /* DNDDragSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F8970A616E37744007DBAF1 /* DNDDragSampleViewController.xib */; };
 		5F8970AE16E37980007DBAF1 /* UIColor+DNDRandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8970AD16E37980007DBAF1 /* UIColor+DNDRandomColor.m */; };
@@ -23,7 +24,6 @@
 		5F8B449616E12E6500293EAC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F8B449516E12E6500293EAC /* Default@2x.png */; };
 		5F8B449816E12E6500293EAC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F8B449716E12E6500293EAC /* Default-568h@2x.png */; };
 		5F8C868616E12FA600F6161B /* DNDDragSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C868516E12FA600F6161B /* DNDDragSampleViewController.m */; };
-		5F8C868D16E130B500F6161B /* libdragndrop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8C868C16E130B500F6161B /* libdragndrop.a */; };
 		5F8C971816E645040070ADB8 /* DNDStackViewSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C971616E645040070ADB8 /* DNDStackViewSampleViewController.m */; };
 		5F8C971916E645040070ADB8 /* DNDStackViewSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F8C971716E645040070ADB8 /* DNDStackViewSampleViewController.xib */; };
 		5F8C971C16E64A010070ADB8 /* DNDStackSampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C971B16E64A010070ADB8 /* DNDStackSampleView.m */; };
@@ -32,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0596D9A51EC336F50036BB2C /* DNDDragAndDrop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DNDDragAndDrop.framework; path = "../../../Library/Developer/Xcode/DerivedData/DragAndDrop-askxyviiivcyevdsjvwjkqhwejtq/Build/Products/Debug-iphonesimulator/DNDDragAndDrop.framework"; sourceTree = "<group>"; };
 		5F8970A316E14753007DBAF1 /* DNDDropSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDropSampleViewController.h; sourceTree = "<group>"; };
 		5F8970A416E14753007DBAF1 /* DNDDropSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDropSampleViewController.m; sourceTree = "<group>"; };
 		5F8970A616E37744007DBAF1 /* DNDDragSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DNDDragSampleViewController.xib; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		5F8B449716E12E6500293EAC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5F8C868416E12FA600F6161B /* DNDDragSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDDragSampleViewController.h; sourceTree = "<group>"; };
 		5F8C868516E12FA600F6161B /* DNDDragSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDDragSampleViewController.m; sourceTree = "<group>"; };
-		5F8C868C16E130B500F6161B /* libdragndrop.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdragndrop.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8C971516E645040070ADB8 /* DNDStackViewSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDStackViewSampleViewController.h; sourceTree = "<group>"; };
 		5F8C971616E645040070ADB8 /* DNDStackViewSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDStackViewSampleViewController.m; sourceTree = "<group>"; };
 		5F8C971716E645040070ADB8 /* DNDStackViewSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DNDStackViewSampleViewController.xib; sourceTree = "<group>"; };
@@ -73,10 +73,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0596D9A61EC336F50036BB2C /* DNDDragAndDrop.framework in Frameworks */,
 				5F8B448216E12E6500293EAC /* UIKit.framework in Frameworks */,
 				5F8B448416E12E6500293EAC /* Foundation.framework in Frameworks */,
 				5F8B448616E12E6500293EAC /* CoreGraphics.framework in Frameworks */,
-				5F8C868D16E130B500F6161B /* libdragndrop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +145,7 @@
 		5F8B448016E12E6500293EAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5F8C868C16E130B500F6161B /* libdragndrop.a */,
+				0596D9A51EC336F50036BB2C /* DNDDragAndDrop.framework */,
 				5F8B448116E12E6500293EAC /* UIKit.framework */,
 				5F8B448316E12E6500293EAC /* Foundation.framework */,
 				5F8B448516E12E6500293EAC /* CoreGraphics.framework */,
