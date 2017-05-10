@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "DNDDragAndDropController.h"
-#import "DNDDragOperation.h"
-#import "DNDLongPressDragRecognizer.h"
+#import <DNDDragAndDrop/DNDDragAndDropController.h>
+#import <DNDDragAndDrop/DNDDragOperation.h>
+#import <DNDDragAndDrop/DNDLongPressDragRecognizer.h>
+
+
+FOUNDATION_EXPORT double DNDDragAndDropVersionNumber;
+FOUNDATION_EXPORT const unsigned char DNDDragAndDropVersionString[];
